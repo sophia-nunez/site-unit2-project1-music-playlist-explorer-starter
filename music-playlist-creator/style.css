@@ -4,3 +4,38 @@ body {
     padding: 0;
     background-color: #f8f8f8;
 }
+
+header, footer {
+    background-color: #ebebeb;
+    color: gray;
+    border: 1px solid gray;
+}
+
+.playlist-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: fit-content;
+}
+
+.playlist {
+    border: 1px solid gray;
+    border-radius: 20px;
+    margin: 15px 30px;
+    padding: 2px;
+    height: fit-content;
+}
+
+.playlist * {
+    margin: 3px;
+}
+
+img {
+    width: 95%;
+    border-radius: 10px;
+}
+
+p {
+    font-size: 12px;
+}
+
+
