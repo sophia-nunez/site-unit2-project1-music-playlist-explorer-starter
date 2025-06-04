@@ -12,11 +12,13 @@ header, footer {
     padding-left: 15px;
 }
 
-.playlist-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    height: fit-content;
+#playlist-cards {
+    display: flex;
+    flex-direction: rows;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(4, 1fr); */
     margin: 20px;
+    justify-content: space-evenly;
 }
 
 .playlist:hover {
@@ -28,7 +30,7 @@ header, footer {
     border-radius: 20px;
     margin: 15px 30px;
     padding: 2px;
-    height: fit-content;
+    width: 170px;
 }
 
 .playlist .card-text {

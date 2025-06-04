@@ -1,0 +1,249 @@
+[
+  {
+    "playlistID": "0",
+    "playlist_name": "Chill Vibes",
+    "playlist_author": "sophia",
+    "playlist_art": "assets/img/playlist.png",
+    "likes": 0,
+    "songs": [
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Spring Day",
+        "artist_name": "BTS",
+        "album_name": "You Never Walk Alone",
+        "timestamp": "4:34"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Euphoria",
+        "artist_name": "BTS",
+        "album_name": "Love Yourself: Answer",
+        "timestamp": "3:48"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Blue & Grey",
+        "artist_name": "BTS",
+        "album_name": "BE",
+        "timestamp": "4:15"
+      }
+    ]
+  },
+  {
+    "playlistID": "1",
+    "playlist_name": "Workout Mix",
+    "playlist_author": "alex",
+    "playlist_art": "assets/img/playlist.png",
+    "likes": 0,
+    "songs": [
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Mic Drop",
+        "artist_name": "BTS",
+        "album_name": "Love Yourself: Her",
+        "timestamp": "3:58"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Fire",
+        "artist_name": "BTS",
+        "album_name": "The Most Beautiful Moment in Life: Young Forever",
+        "timestamp": "3:23"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Not Today",
+        "artist_name": "BTS",
+        "album_name": "You Never Walk Alone",
+        "timestamp": "3:51"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Run BTS",
+        "artist_name": "BTS",
+        "album_name": "Proof",
+        "timestamp": "3:25"
+      }
+    ]
+  },
+  {
+    "playlistID": "2",
+    "playlist_name": "Love Songs",
+    "playlist_author": "maria",
+    "playlist_art": "assets/img/playlist.png",
+    "likes": 0,
+    "songs": [
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Boy With Luv",
+        "artist_name": "BTS ft. Halsey",
+        "album_name": "Map of the Soul: Persona",
+        "timestamp": "3:50"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Make It Right",
+        "artist_name": "BTS",
+        "album_name": "Map of the Soul: Persona",
+        "timestamp": "3:46"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Serendipity",
+        "artist_name": "BTS (Jimin)",
+        "album_name": "Love Yourself: Her",
+        "timestamp": "4:36"
+      }
+    ]
+  },
+  {
+    "playlistID": "3",
+    "playlist_name": "Throwback BTS",
+    "playlist_author": "leo",
+    "playlist_art": "assets/img/playlist.png",
+    "likes": 0,
+    "songs": [
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "No More Dream",
+        "artist_name": "BTS",
+        "album_name": "2 Cool 4 Skool",
+        "timestamp": "3:42"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Boy In Luv",
+        "artist_name": "BTS",
+        "album_name": "Skool Luv Affair",
+        "timestamp": "3:49"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Danger",
+        "artist_name": "BTS",
+        "album_name": "Dark & Wild",
+        "timestamp": "4:03"
+      }
+    ]
+  },
+  {
+    "playlistID": "4",
+    "playlist_name": "Feel-Good Anthems",
+    "playlist_author": "sophia",
+    "playlist_art": "assets/img/playlist.png",
+    "likes": 0,
+    "songs": [
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Permission to Dance",
+        "artist_name": "BTS",
+        "album_name": "Butter (Single)",
+        "timestamp": "3:08"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Dynamite",
+        "artist_name": "BTS",
+        "album_name": "Dynamite (Single)",
+        "timestamp": "3:19"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Butter",
+        "artist_name": "BTS",
+        "album_name": "Butter (Single)",
+        "timestamp": "2:44"
+      }
+    ]
+  },
+  {
+    "playlistID": "5",
+    "playlist_name": "Night Drive",
+    "playlist_author": "nina",
+    "playlist_art": "assets/img/playlist.png",
+    "likes": 0,
+    "songs": [
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Outro: Wings",
+        "artist_name": "BTS",
+        "album_name": "Wings",
+        "timestamp": "3:45"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Love Maze",
+        "artist_name": "BTS",
+        "album_name": "Love Yourself: Tear",
+        "timestamp": "3:39"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Rain",
+        "artist_name": "BTS",
+        "album_name": "Dark & Wild",
+        "timestamp": "4:47"
+      }
+    ]
+  },
+  {
+    "playlistID": "6",
+    "playlist_name": "Emotional Ballads",
+    "playlist_author": "alex",
+    "playlist_art": "assets/img/playlist.png",
+    "likes": 0,
+    "songs": [
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "The Truth Untold",
+        "artist_name": "BTS ft. Steve Aoki",
+        "album_name": "Love Yourself: Tear",
+        "timestamp": "4:02"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Epiphany",
+        "artist_name": "BTS (Jin)",
+        "album_name": "Love Yourself: Answer",
+        "timestamp": "4:00"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Awake",
+        "artist_name": "BTS (Jin)",
+        "album_name": "Wings",
+        "timestamp": "3:33"
+      }
+    ]
+  },
+  {
+    "playlistID": "7",
+    "playlist_name": "RM’s Picks",
+    "playlist_author": "maria",
+    "playlist_art": "assets/img/playlist.png",
+    "likes": 0,
+    "songs": [
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Intro: Persona",
+        "artist_name": "BTS (RM)",
+        "album_name": "Map of the Soul: Persona",
+        "timestamp": "2:54"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Trivia: Love",
+        "artist_name": "BTS (RM)",
+        "album_name": "Love Yourself: Answer",
+        "timestamp": "3:44"
+      },
+      {
+        "song_cover": "assets/img/song.png",
+        "song_title": "Moonchild",
+        "artist_name": "RM",
+        "album_name": "mono.",
+        "timestamp": "3:51"
+      }
+    ]
+  }
+]
