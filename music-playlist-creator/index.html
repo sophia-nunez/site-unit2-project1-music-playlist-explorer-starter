@@ -1,43 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Music Playlist Explorer</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modal.css" />
+  </head>
+  <body>
     <header>
-        <h1>Music Playlist Explorer</h1>
+      <h1>Music Playlist Explorer</h1>
     </header>
 
-    <main> 
-        <section class="playlist-cards">
-            <article class="playlist">
-                <img src="./assets/img/playlist.png" />
-                <h3>Playlist Title</h3>
-                <p>Creator Name</p>
-                <p>likes</p>
-            </article>
-            <p>card</p>
-            <p>card</p>
-            <p>card</p>
-            <p>card</p>
-            <p>card</p>
-            <p>card</p>
-            <p>card</p>
-        </section>
-
-        
+    <main>
+      <section class="playlist-cards">
+        <article class="playlist">
+          <img class="playlist-cover" src="./assets/img/playlist.png" />
+          <section class="card-text">
+            <h3>Playlist Title</h3>
+            <p>Creator Name</p>
+            <p><img class="icon" src="assets/img/like-icon.png" /> 0</p>
+          </section>
+        </article>
+        <article class="playlist">
+          <img class="playlist-cover" src="./assets/img/playlist.png" />
+          <section class="card-text">
+            <h3>Playlist Title</h3>
+            <p>Creator Name</p>
+            <p><img class="icon" src="assets/img/like-icon.png" /> 0</p>
+          </section>
+        </article>
+        <article class="playlist">
+          <img class="playlist-cover" src="./assets/img/playlist.png" />
+          <section class="card-text">
+            <h3>Playlist Title</h3>
+            <p>Creator Name</p>
+            <p><img class="icon" src="assets/img/like-icon.png" /> 0</p>
+          </section>
+        </article>
+        <article class="playlist">
+          <img class="playlist-cover" src="./assets/img/playlist.png" />
+          <section class="card-text">
+            <h3>Playlist Title</h3>
+            <p>Creator Name</p>
+            <p><img class="icon" src="assets/img/like-icon.png" /> 0</p>
+          </section>
+        </article>
+        <article class="playlist">
+          <img class="playlist-cover" src="./assets/img/playlist.png" />
+          <section class="card-text">
+            <h3>Playlist Title</h3>
+            <p>Creator Name</p>
+            <p><img class="icon" src="assets/img/like-icon.png" /> 0</p>
+          </section>
+        </article>
+        <article class="playlist">
+          <img class="playlist-cover" src="./assets/img/playlist.png" />
+          <section class="card-text">
+            <h3>Playlist Title</h3>
+            <p>Creator Name</p>
+            <p><img class="icon" src="assets/img/like-icon.png" /> 0</p>
+          </section>
+        </article>
+        <article class="playlist">
+          <img class="playlist-cover" src="./assets/img/playlist.png" />
+          <section class="card-text">
+            <h3>Playlist Title</h3>
+            <p>Creator Name</p>
+            <p><img class="icon" src="assets/img/like-icon.png" /> 0</p>
+          </section>
+        </article>
+        <article class="playlist">
+          <img class="playlist-cover" src="./assets/img/playlist.png" />
+          <section class="card-text">
+            <h3>Playlist Title</h3>
+            <p>Creator Name</p>
+            <p><img class="icon" src="assets/img/like-icon.png" /> 0</p>
+          </section>
+        </article>
+      </section>
     </main>
 
+    <aside id="playlist-modal" class="modal">
+        <span class="close">&times;</span>
+        <section class="modal-content">
+            <article id="playlist-card" class="flex-container">
+                <img id="playlist-cover" src="./assets/img/playlist.png" alt="Playlist Cover Image" height="50px;"/>
+                <div>
+                    <h1 id="playlist-name">Playlist Name</h1>
+                    <p id="creator-name">Creator Name</p>
+                </div>
+            </article>
+            <article class="song-card">
+                <div class="flex-container">
+                    <img id="song-cover" src="./assets/img/song.png" alt="Song Cover Image" height="50px;"/>
+                    <div>
+                        <p id="song-title">Song Title</p>
+                        <p id="artist-name">Artist Name</p>
+                        <p id="album-name">Album Name</p>
+                    </div>
+                </div>
+                <div>
+                    <p id="timestamp">0:00</p>
+                </div>
+            </article>
+            <article class="song-card">
+                <div class="flex-container">
+                    <img id="song-cover" src="./assets/img/song.png" alt="Song Cover Image" height="50px;"/>
+                    <div>
+                        <p id="song-title">Song Title</p>
+                        <p id="artist-name">Artist Name</p>
+                        <p id="album-name">Album Name</p>
+                    </div>
+                </div>
+                <div>
+                    <p id="timestamp">0:00</p>
+                </div>
+            </article>
+            <article class="song-card">
+                <div class="flex-container">
+                    <img id="song-cover" src="./assets/img/song.png" alt="Song Cover Image" height="50px;"/>
+                    <div>
+                        <p id="song-title">Song Title</p>
+                        <p id="artist-name">Artist Name</p>
+                        <p id="album-name">Album Name</p>
+                    </div>
+                </div>
+                <div>
+                    <p id="timestamp">0:00</p>
+                </div>
+            </article>
+            <article class="song-card">
+                <div class="flex-container">
+                    <img id="song-cover" src="./assets/img/song.png" alt="Song Cover Image" height="50px;"/>
+                    <div>
+                        <p id="song-title">Song Title</p>
+                        <p id="artist-name">Artist Name</p>
+                        <p id="album-name">Album Name</p>
+                    </div>
+                </div>
+                <div>
+                    <p id="timestamp">0:00</p>
+                </div>
+            </article>
+        </section>
+    </aside>
+
     <footer>
-        <p> footer </p>
+      <p>footer</p>
     </footer>
     <script src="data/data.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

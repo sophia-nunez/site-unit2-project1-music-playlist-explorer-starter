@@ -1,0 +1,87 @@
+/* CSS for Modal */
+.modal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+   background-color: #fefefe;
+   margin: 15% auto; /* 15% from the top and centered */
+   padding: 20px;
+   border: 1px solid #888;
+   width: 80%; /* Could be more or less, depending on screen size */
+   display: flex;
+   flex-direction: column;
+   border-radius: 20px;
+   animation-name: animatetop;
+   animation-duration: .7s
+}
+
+@keyframes animatetop {
+  from {top: 0; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.close {
+   color: #aaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+/* Flexbox styling */
+.flex-container {
+    display: flex;
+    flex-direction: rows;
+    height: fit-content;
+}
+
+.song-card {
+    display: flex;
+    flex-direction: rows;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#playlist-card * {
+    margin: 1px;
+}
+
+#playlist-card #playlist-cover {
+    height: 150px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+#song-cover {
+    height: 90px;
+    margin-right: 20px;
+    align-self: center;
+}
+
+#playlist-name {
+    font-size: 30px;
+    margin: 20px 0px;
+}
+
+#song-title {
+    font-size: 17px;
+}

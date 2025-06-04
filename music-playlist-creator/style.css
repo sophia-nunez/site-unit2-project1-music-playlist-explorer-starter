@@ -9,12 +9,18 @@ header, footer {
     background-color: #ebebeb;
     color: gray;
     border: 1px solid gray;
+    padding-left: 15px;
 }
 
 .playlist-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     height: fit-content;
+    margin: 20px;
+}
+
+.playlist:hover {
+    box-shadow: 5px 5px 5px lightgray;
 }
 
 .playlist {
@@ -25,17 +31,21 @@ header, footer {
     height: fit-content;
 }
 
-.playlist * {
+.playlist .card-text {
     margin: 3px;
 }
 
-img {
-    width: 95%;
-    border-radius: 10px;
+.playlist-cover {
+    width: 100%;
+    border-radius: 20px;
 }
 
 p {
     font-size: 12px;
+}
+
+.icon {
+    width: 13px;
 }
 
 
