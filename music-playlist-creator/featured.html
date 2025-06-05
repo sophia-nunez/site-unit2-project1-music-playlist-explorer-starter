@@ -3,27 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Music Playlist Explorer</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <title>Featured Playlist</title>
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="modal.css" />
   </head>
-  <body onload="loadPlaylists()">
+  <body onload="loadFeatured()">
     <header>
         <a href="index.html" class="logo-container"><img id='logo' src="assets/img/main-icon.png" /></a>
         <h1>Music Playlist Explorer</h1>
 
         <nav>
-            <a id="featured" href="featured.html"><strong>Featured</strong></a>
+            <a id="home" href="index.html"><strong><i class="fa fa-home" aria-hidden="true"></i></strong></a>
         </nav>
     </header>
 
     <main>
-      <section id="playlist-cards">
-
-      </section>
+        <h2>Featured Playlist:</h2>
+        <article class="playlist" id="featured-container">
+            <!-- playlist information dynamically loaded -->
+        </article>
     </main>
 
     <aside id="playlist-modal" class="modal">
@@ -42,9 +41,9 @@
             </section>
         </section>
     </aside>
-
+    
     <footer>
-      <p>Created by Sophia N</p>
+        <p> Created by Sophia N</p>
     </footer>
 
     <script src="data/data.json"></script>

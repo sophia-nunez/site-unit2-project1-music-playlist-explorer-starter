@@ -1,15 +1,60 @@
+:root {
+  --darkpurple: #230f46;
+  --purple: #d9c2f1;
+  --lightpurple: #f8f5ff;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: var(--lightpurple);
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    min-height: 100vh;
+    justify-content: space-between;
 }
 
 header, footer {
-    background-color: #ebebeb;
-    color: gray;
-    border: 1px solid gray;
+    background-color: var(--purple);
+    color: var(--darkpurple);
+    /* border: 1px solid var(--darkpurple); */
     padding-left: 15px;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr;
+}
+
+.logo-container {
+    align-self: center;
+}
+
+#logo {
+    height: 40px;
+}
+
+header nav {
+    align-self: center;
+    justify-self: end;
+    margin-right: 10px;
+    
+    & a {
+        text-decoration: none;
+        border: 2px solid var(--darkpurple);
+        border-radius: 20px;
+        padding: 10px;
+        color: var(--darkpurple);
+        background-color: var(--lightpurple);
+        display: block;
+    }
+}
+
+#home {
+    width: 18px;
+    height: 18px;
 }
 
 #playlist-cards {
@@ -22,32 +67,77 @@ header, footer {
 }
 
 .playlist:hover {
-    box-shadow: 5px 5px 5px lightgray;
+    box-shadow: 0px 0px 15px 1px var(--purple);
 }
 
 .playlist {
-    border: 1px solid gray;
+    /* border: 1px solid var(--darkpurple); */
     border-radius: 20px;
     margin: 15px 30px;
-    padding: 2px;
-    width: 170px;
+    padding: 4px;
+    width: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .playlist .card-text {
-    margin: 3px;
+    margin: 3px 10px;
+    height: 100%;
+}
+
+.card-text * {
+    margin: 4px 1px;
 }
 
 .playlist-cover {
-    width: 100%;
+    width: 97%;
+    margin-top: 3px;
     border-radius: 20px;
+    align-self: center;
+}
+
+.playlist-name {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 24px;
+    align-self: center;
+    white-space: nowrap;
 }
 
 p {
     font-size: 12px;
 }
 
-.icon {
-    width: 13px;
+.heart-icon {
+    margin-right: 5px;
+    pointer-events: none; /* is only working after clicking button once for featured page*/
+}
+
+.like-container:hover {
+    box-shadow: 1px 5px 5px var(--lightpurple);
+}
+
+#featured-container {
+    width: 60%;
+    justify-self: center;
+}
+
+h2 {
+    justify-self: center;
 }
 
 
+/* threshold viewport */
+@media (min-width: 992px) {
+    #playlist-cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 20px;
+    }
+
+    .playlist {
+        width: 75%;
+    }
+}
