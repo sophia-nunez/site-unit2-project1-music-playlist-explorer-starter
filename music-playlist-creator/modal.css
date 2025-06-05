@@ -21,7 +21,8 @@
    flex-direction: column;
    border-radius: 20px;
    animation-name: animatetop;
-   animation-duration: .7s
+   animation-duration: .7s;
+   box-shadow: 0px 0px 15px 1px rgba(48, 0, 103, 0.5);
 }
 
 @keyframes animatetop {
@@ -64,17 +65,27 @@
     margin: 10px 1px;
 }
 
+.song-card:hover {
+    background-color: lightgray;
+
+    #song-cover {
+        box-shadow: 0px 0px 5px 2px gray;
+    }
+}
+
 #playlist-card #playlist-cover {
     height: 150px;
     margin-right: 20px;
     margin-bottom: 20px;
     align-self: center;
+    border-radius: 10px;
 }
 
 #song-cover {
     height: 90px;
     margin-right: 20px;
     align-self: center;
+    border-radius: 10px;
 }
 
 #playlist-name {
@@ -96,7 +107,8 @@
 }
 
 #shuffle-btn:hover {
-    box-shadow: 0px 0px 10px 2px lightgreen;
+    background-color: green;
+    box-shadow: 0px 0px 4px 1px green;
     cursor: pointer;
 }
 
