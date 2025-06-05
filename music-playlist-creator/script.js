@@ -32,9 +32,11 @@ async function loadPlaylists() {
             playlistCard.innerHTML = 
             `
             <img class="playlist-cover" src="${playlist.playlist_art}" />
-            <section class="card-text">
-                <h3 class="playlist-name">${playlist.playlist_name}</h3>
-                <p>${playlist.playlist_author}</p>
+            <section class="card-info">
+                <div class="card-text">
+                    <h3 class="playlist-name">${playlist.playlist_name}</h3>
+                    <p>${playlist.playlist_author}</p>
+                </div>
                 <button class="like-container" onclick="likePlaylist(event)" data-liked="false"><i id="icon" class="fa-regular fa-heart heart-icon"></i><span class="like-count">${playlist.likes}</span></button>
             </section>
             `;

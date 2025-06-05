@@ -1,14 +1,22 @@
 :root {
+  --lightpurple: #d3c2f1;
+  --darkpurple: #1d013b;
+  --hoverpurple: #1d013b32;
+  --purple: #413658;
+  --graypurple: #9583b4;
+}
+
+/* :root {
   --darkpurple: #230f46;
   --purple: #d9c2f1;
   --lightpurple: #f8f5ff;
-}
+} */
 
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--lightpurple);
+    background-color: var(--purple);
     display: flex;
     flex-direction: column;
     height: fit-content;
@@ -17,38 +25,48 @@ body {
 }
 
 header, footer {
-    background-color: var(--purple);
-    color: var(--darkpurple);
+    background-color: var(--darkpurple);
+    color: var(--lightpurple);
     /* border: 1px solid var(--darkpurple); */
     padding-left: 15px;
 }
 
 header {
     display: grid;
-    grid-template-columns: 50px 1fr 1fr;
+    grid-template-columns: 50px 1fr;
 }
 
 .logo-container {
     align-self: center;
+    color: var(--lightpurple);
+    justify-self: center;
 }
 
 #logo {
     height: 40px;
 }
 
-header nav {
-    align-self: center;
-    justify-self: end;
-    margin-right: 10px;
+nav {
+    width: 100%;
+    justify-content: end;
+    border-top: 1px solid var(--purple);
+    display: flex;
+    flex-direction: row;
+    background-color: var(--darkpurple);
     
     & a {
+        height: 100%;
         text-decoration: none;
-        border: 2px solid var(--darkpurple);
-        border-radius: 20px;
+        /* border: 2px solid var(--darkpurple);
+        border-radius: 20px; */
         padding: 10px;
-        color: var(--darkpurple);
-        background-color: var(--lightpurple);
+        color: var(--lightpurple);
+        /* background-color: var(--lightpurple); */
         display: block;
+    }
+
+    a:hover {
+        background-color: #413658;
     }
 }
 
@@ -65,7 +83,8 @@ header nav {
 }
 
 .playlist:hover {
-    box-shadow: 0px 0px 15px 1px var(--purple);
+    box-shadow: 0px 0px 10px 2px var(--hoverpurple);
+    background-color: var(--hoverpurple);
 }
 
 .playlist {
@@ -74,13 +93,14 @@ header nav {
     margin: 15px;
     padding: 4px;
     width: 90%;
-    background-color: white;
+    /* background-color: var(--darkpurple); */
+    color: var(--lightpurple);
     display: flex;
     flex-direction: column;
 }
 
 .playlist .card-text {
-    margin: 3px 10px;
+    margin: 5px 10px;
     height: 100%;
 }
 
@@ -88,8 +108,18 @@ header nav {
     margin: 4px 1px;
 }
 
+.card-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .playlist-cover {
     width: 97%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     margin-top: 3px;
     border-radius: 20px;
     align-self: center;
@@ -110,18 +140,40 @@ p {
 
 .heart-icon {
     margin-right: 5px;
-    pointer-events: none; /* is only working after clicking button once for featured page*/
+    font-size: 20px;
+    pointer-events: none;
+    
+}
+
+.like-count {
+    pointer-events: none;
 }
 
 .like-container:hover {
-    box-shadow: 1px 5px 5px var(--lightpurple);
+    i {
+        text-shadow: 1px 3px 2px var(--darkpurple);
+        color: var(--graypurple);
+    }
+}
+
+.like-container {
+    cursor: pointer;
+    color: var(--lightpurple);
+    background-color: transparent;
+    border: none;
+    margin-right: 8px;
 }
 
 #featured-container {
-    width: 60%;
+    width: 70%;
     justify-self: center;
+
 }
 
+h2 {
+    text-align: center;
+    color: var(--lightpurple);
+}
 
 /* threshold viewport */
 @media (min-width: 476px) {
@@ -144,7 +196,7 @@ p {
         margin: 15px;
         padding: 4px;
         width: min(80%, 250px);
-        background-color: white;
+        /* background-color: var(--darkpurple); */
         display: flex;
         flex-direction: column;
     }

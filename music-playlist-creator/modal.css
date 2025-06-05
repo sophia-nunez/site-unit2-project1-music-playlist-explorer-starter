@@ -74,7 +74,10 @@
 }
 
 #playlist-card #playlist-cover {
+    width: auto;
     height: 150px;
+    aspect-ratio: 1.5 / 1;
+    object-fit: cover;
     margin-right: 20px;
     margin-bottom: 20px;
     align-self: center;
