@@ -12,84 +12,112 @@
     <link rel="stylesheet" href="form.css" />
   </head>
   <body class="home-page">
-      <nav>
-        <h3 id="website"><i class="fa-solid fa-music"></i>Music Playlist Explorer</h3>
-        <a id="index" href="index.html"><strong>All</strong></a>
-        <a id="featured" href="featured.html"><strong>Featured</strong></a>
+    <nav>
+      <h3 id="website">
+        <i class="fa-solid fa-music"></i>Music Playlist Explorer
+      </h3>
+      <a id="index" href="index.html"><strong>All</strong></a>
+      <a id="featured" href="featured.html"><strong>Featured</strong></a>
     </nav>
-    
+
     <header>
-        <h1 id="page-name"></h1>
+      <h1 id="page-name"></h1>
     </header>
 
     <main>
-        <div id="search-section">
-            <div id="search">
-                <i class="fa fa-search" id="search-btn" aria-hidden="true" type="submit"></i>
-                <input type="search" id="search-bar" placeholder="Search..">
-            </div>
-                <div id="sort-bar">
-                    <!-- <p>Sort by:</p> -->
-                    <div id ="sort-btns">
-                        <button id="sort-name" onclick="sortNames()">Name</button>
-                        <button id="sort-likes" onclick="sortLikes()">Likes</button>
-                        <button id="sort-date" onclick="sortDates()">Date</button>
-                    </div>
-                </div>
+      <div id="search-section">
+        <div id="search">
+          <i
+            class="fa fa-search"
+            id="search-btn"
+            aria-hidden="true"
+            type="submit"
+          ></i>
+          <input type="search" id="search-bar" placeholder="Search.." />
         </div>
+        <div id="sort-bar">
+          <!-- <p>Sort by:</p> -->
+          <div id="sort-btns">
+            <button id="sort-name" onclick="sortNames()">Name</button>
+            <button id="sort-likes" onclick="sortLikes()">Likes</button>
+            <button id="sort-date" onclick="sortDates()">Date</button>
+          </div>
+        </div>
+      </div>
 
-        <section id="playlist-cards">
-            <!-- dynamically generated -->
-        </section>
+      <section id="playlist-cards">
+        <!-- dynamically generated -->
+      </section>
     </main>
 
     <aside id="playlist-modal" class="modal">
-        <span class="close">&times;</span>
-        <section id="modal-content">
-            <article id="playlist-card" class="flex-container">
-                <img id="playlist-cover" src="./assets/img/playlist.png" alt="Playlist Cover Image" height="50px;"/>
-                <div>
-                    <h1 id="playlist-name">Playlist Name</h1>
-                    <p id="creator-name">Creator Name</p>
-                    <button id="shuffle-btn">Shuffle <i class="fa-solid fa-shuffle"></i></button>
-                </div>
-            </article>
-            <section id="song-cards">
-                <!-- song cards here from script -->
-            </section>
+      <span class="close">&times;</span>
+      <section id="modal-content">
+        <article id="playlist-card" class="flex-container">
+          <img
+            id="playlist-cover"
+            src="./assets/img/playlist.png"
+            alt="Playlist Cover Image"
+            height="50px;"
+          />
+          <div>
+            <h1 id="playlist-name">Playlist Name</h1>
+            <p id="creator-name">Creator Name</p>
+            <button id="shuffle-btn">
+              Shuffle <i class="fa-solid fa-shuffle"></i>
+            </button>
+          </div>
+        </article>
+        <section id="song-cards">
+          <!-- song cards here from script -->
         </section>
+      </section>
     </aside>
 
     <!-- add modal -->
     <aside id="add-modal" class="modal">
-        <span class="close">&times;</span>
-        <section id="modal-content">
-            <form id="add-form" onsubmit="handlePlaylistCreation(event)">
-                <section id="playlist-info">
+      <span class="close">&times;</span>
+      <section id="modal-content">
+        <form id="add-form" onsubmit="handlePlaylistCreation(event)">
+          <section id="playlist-info">
+            <label for="playlist-new-name">Playlist Name: </label>
+            <input
+              type="text"
+              id="playlist-new-name"
+              name="playlist_name"
+              required
+            />
 
-                    <label for="playlist-new-name">Playlist Name: </label>
-                    <input type="text" id="playlist-new-name" name="playlist_name" required>
-    
-                    <br />
-    
-                    <label for="author">Author: </label><br />
-                    <input type="text" id="author" name="author" required>
-    
-                    <br />
-    
-                    <label for="cover-image">Cover Image: </label><br />
-                    <input type="file" id="cover-image" name="cover-image" accept="image/png, image/jpeg"/>
-                    <img id="current-cover" src='./assets/img/playlist.png' alt="Song Cover Image" height="50px;"/>
-                </section>
-                <br />
-                <button id="add-song-btn" onclick="addSongSection(event)">Add Song +</button>
-                <section id="song-section">
+            <br />
 
-                </section>
-                
-                <button id="add-submit" type="submit">Create Playlist</button>
-            </form>
-        </section>
+            <label for="author">Author: </label><br />
+            <input type="text" id="author" name="author" required />
+
+            <br />
+
+            <label for="cover-image">Cover Image: </label><br />
+            <input
+              type="file"
+              id="cover-image"
+              name="cover-image"
+              accept="image/png, image/jpeg"
+            />
+            <img
+              id="current-cover"
+              src="./assets/img/playlist.png"
+              alt="Song Cover Image"
+              height="50px;"
+            />
+          </section>
+          <br />
+          <button id="add-song-btn" onclick="addSongSection(event)">
+            Add Song +
+          </button>
+          <section id="song-section"></section>
+
+          <button id="add-submit" type="submit">Create Playlist</button>
+        </form>
+      </section>
     </aside>
 
     <footer>
@@ -98,6 +126,9 @@
 
     <script src="data/data.json"></script>
     <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/43369ad2cf.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/43369ad2cf.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

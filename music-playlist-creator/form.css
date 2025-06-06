@@ -1,25 +1,25 @@
 form {
-    margin: 20px 5px;
+  margin: 20px 5px;
 
-    * {
-        margin: 10px 5px;
-    }
+  * {
+    margin: 10px 5px;
+  }
 
-    input {
-        border-radius: 10px;
-        height: 35px;
-        width: 80%;
-    }
+  input {
+    border-radius: 10px;
+    height: 35px;
+    width: 80%;
+  }
 
-    label {
-        color: black;
-    }
+  label {
+    color: black;
+  }
 }
 
 #add-song-btn {
-    color: black;
+  color: black;
 }
 
 #playlist-new-name {
-    width: 80%;
+  width: 80%;
 }

@@ -1,122 +1,127 @@
 /* CSS for Modal */
 .modal {
-   display: none; /* Hidden by default */
-   position: fixed; /* Stay in place */
-   z-index: 1; /* Sit on top */
-   left: 0;
-   top: 0;
-   width: 100%; /* Full width */
-   height: 100%; /* Full height */
-   overflow: auto; /* Enable scroll if needed */
-   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 #modal-content {
-   background-color: #fefefe;
-   margin: 15% auto; /* 15% from the top and centered */
-   padding: 20px;
-   border: 1px solid #888;
-   width: 80%; /* Could be more or less, depending on screen size */
-   display: flex;
-   flex-direction: column;
-   border-radius: 20px;
-   animation-name: animatetop;
-   animation-duration: .7s;
-   box-shadow: 0px 0px 15px 1px rgba(48, 0, 103, 0.5);
-    max-width: 800px;
-
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  animation-name: animatetop;
+  animation-duration: 0.7s;
+  box-shadow: 0px 0px 15px 1px rgba(48, 0, 103, 0.5);
+  max-width: 800px;
 }
 
 @keyframes animatetop {
-  from {top: 0; opacity: 0}
-  to {top: 0; opacity: 1}
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 .close {
-   color: #aaa;
-   float: right;
-   font-size: 28px;
-   font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-   color: black;
-   text-decoration: none;
-   cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Flexbox styling */
 .flex-container {
-    display: flex;
-    flex-direction: rows;
-    height: fit-content;
+  display: flex;
+  flex-direction: rows;
+  height: fit-content;
 }
 
 .song-card {
-    display: flex;
-    flex-direction: rows;
-    justify-content: space-between;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border: 1px solid black;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: rows;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 #playlist-card * {
-    margin: 10px 1px;
+  margin: 10px 1px;
 }
 
 .song-card:hover {
-    background-color: lightgray;
+  background-color: lightgray;
 
-    #song-cover {
-        box-shadow: 0px 0px 5px 2px gray;
-    }
+  #song-cover {
+    box-shadow: 0px 0px 5px 2px gray;
+  }
 }
 
 #playlist-card #playlist-cover {
-    width: auto;
-    height: 150px;
-    aspect-ratio: 1.5 / 1;
-    object-fit: cover;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    align-self: center;
-    border-radius: 10px;
+  width: auto;
+  height: 150px;
+  aspect-ratio: 1.5 / 1;
+  object-fit: cover;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  align-self: center;
+  border-radius: 10px;
 }
 
 #song-cover {
-    height: 90px;
-    margin-right: 20px;
-    align-self: center;
-    border-radius: 10px;
+  height: 90px;
+  margin-right: 20px;
+  align-self: center;
+  border-radius: 10px;
 }
 
 #playlist-name {
-    font-size: 30px;
-    margin: 20px 0px;
+  font-size: 30px;
+  margin: 20px 0px;
 }
 
 #song-title {
-    font-size: 17px;
+  font-size: 17px;
 }
 
 #shuffle-btn {
-    background-color: #1DB954;
-    color: white;
-    border-color: white;
-    border-radius: 10px;
-    border: none;
-    justify-self: end;
+  background-color: #1db954;
+  color: white;
+  border-color: white;
+  border-radius: 10px;
+  border: none;
+  justify-self: end;
 }
 
 #shuffle-btn:hover {
-    background-color: green;
-    box-shadow: 0px 0px 4px 1px green;
-    cursor: pointer;
+  background-color: green;
+  box-shadow: 0px 0px 4px 1px green;
+  cursor: pointer;
 }
 
 #creator-name {
-    font-size: 23px;
+  font-size: 23px;
 }
