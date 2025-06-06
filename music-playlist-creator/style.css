@@ -281,6 +281,11 @@ h2 {
 /* stretch features */
 #add-container {
     justify-content: center;
+
+    #add-form {
+        width: 100%;
+        margin: 20px 10px;
+    }
 }
 
 #add-btn {
@@ -300,6 +305,21 @@ h2 {
 #add-btn:hover {
     color: var(--purple);
     background-color: #1d013b79;
+}
+
+#song-section .song-card {
+    flex-wrap: wrap;
+
+    input {
+        width: 150px;
+    }
+}
+
+@media (min-width: 955px) {
+    #song-section .song-card {
+        flex-wrap: nowrap;
+    }
+
 }
 
 
@@ -346,6 +366,7 @@ h2 {
 #current-cover {
     height: 100px;
     margin: 0px 40px;
+    border-radius: 20px;
 }
 
 #search-section {

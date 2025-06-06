@@ -58,7 +58,7 @@ function loadHome() {
 function loadPlaylists(playlists) {
     playlistCards.innerHTML = `
         <article id="add-container" class="playlist">
-            <i id="add-btn" class="fa fa-plus" aria-hidden="true"></i>
+            <i id="add-btn" class="fa fa-plus" aria-hidden="true" onclick="openAddModal()"></i>
         </article>
     `;
     // now load playlists
@@ -291,24 +291,26 @@ function addSongSection(event) {
 
     newSong.innerHTML =
         `
-            <label for="song-name${numSongs}">Song Name: </label>
-            <input type="text" id="song-name${numSongs}" name="song-name${numSongs}" required>
-        
-            <br />
-        
-            <label for="artist-name${numSongs}">Song Artist: </label>
-            <input type="text" id="artist-name${numSongs}" name="artist-name${numSongs}" required>
-
-            <br />
-
-            <label for="album-name${numSongs}">Album Name: </label>
-            <input type="text" id="album-name${numSongs}" name="album-name${numSongs}" required>
-
-            <br />
-
-            <label for="song-length${numSongs}">Song Length: </label>
-            <input type="text" id="song-length${numSongs}" name="song-length${numSongs}" required>
-        `;
+            <div>
+                <label for="song-name${numSongs}">Song Name: </label>
+                <input type="text" id="song-name${numSongs}" name="song-name${numSongs}" required>
+            </div>
+                <br />
+            <div>
+                <label for="artist-name${numSongs}">Song Artist: </label>
+                <input type="text" id="artist-name${numSongs}" name="artist-name${numSongs}" required>
+            </div>
+                <br />
+            <div>
+                <label for="album-name${numSongs}">Album Name: </label>
+                <input type="text" id="album-name${numSongs}" name="album-name${numSongs}" required>
+            </div>
+                <br />
+            <div>
+                <label for="song-length${numSongs}">Song Length: </label>
+                <input type="text" id="song-length${numSongs}" name="song-length${numSongs}" required>
+            </div>
+            `;
 
         // <br /> For song cover
 
@@ -397,10 +399,12 @@ function closeAddModal() {
     playlist_art.value = '';
 
     addModal.style.display = "none";
-    addModal.style.pointerEffects = "none";
+    // addModal.style.pointerEffects = "none";
 
     editSongs = document.getElementById('song-section');
     editSongs.innerHTML = '';
+
+    numSongs = 0;
 }
 
 const addSpan = document.getElementsByClassName('close')[1];
@@ -427,6 +431,9 @@ function openEditModal(playlist) {
     playlist_name.value = `${playlist.playlist_name}`;
     playlist_author.value = `${playlist.playlist_author}`;
     //playlist_art.value = `${playlist.playlist_art}`;
+
+    // if user uploads file, change image preview:
+    playlist_art.addEventListener('change', changePreview, false);
 
     editSongs = document.getElementById('song-section');
     let songIdNum = 0;
@@ -464,6 +471,20 @@ function deleteSong(event) {
     songCard.style.display = 'none';
 }
 
+function changePreview() {
+    if (!this.files || this.files.length === 0) {
+      return; // nothin uploaded
+    }
+    const file = this.files[0];
+
+    const currentCover = document.getElementById('current-cover');
+    currentCover.src = URL.createObjectURL(file);
+
+    currentCover.onload = () => {
+        URL.revokeObjectURL(currentCover.src);
+    }
+}
+
 function editPlaylistSubmission(event) {
     event.preventDefault();
     const submitBtn = document.getElementById('add-submit');
@@ -492,8 +513,8 @@ function editPlaylistSubmission(event) {
     songsToDelete = [];
 
     songs = playlist.songs;
-    
-    // song info, make a song for each song added
+
+     // song info, make a song for each song added
     for (i = 0; i < numSongs; i++) {
         const song_title = document.getElementById(`song-name${i}`).value;
         const artist_name = document.getElementById(`artist-name${i}`).value;

@@ -23,6 +23,8 @@
    animation-name: animatetop;
    animation-duration: .7s;
    box-shadow: 0px 0px 15px 1px rgba(48, 0, 103, 0.5);
+    max-width: 800px;
+
 }
 
 @keyframes animatetop {
