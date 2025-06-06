@@ -37,6 +37,8 @@ footer {
 header {
   display: grid;
   font-size: larger;
+  box-shadow: 0px 0px 7px 2px var(--darkpurple);
+
   h1 {
     margin-left: 12px;
   }
@@ -362,21 +364,20 @@ h2 {
 }
 
 #current-cover {
-  height: 100px;
+  height: auto;
+  width: 50%;
   margin: 0px 40px;
   border-radius: 20px;
 }
 
 #search-section {
   width: 90%;
-  margin: 20px auto;
+  margin: 30px auto;
   display: flex;
   flex-direction: row;
   gap: 5px;
   justify-content: space-between;
   align-items: center;
-  /* margin-top: 14px;
-    margin-bottom:  */
 
   #search {
     width: 60%;

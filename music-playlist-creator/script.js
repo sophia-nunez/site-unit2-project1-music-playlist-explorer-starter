@@ -86,6 +86,7 @@ function loadPlaylists(playlists) {
 }
 
 function createPlaylistCard(playlist) {
+  // template for HTML, finish and replace if time
   // const playlistCover = document.createElement('img')
   // playlistCover.className = "playlist-cover"
   // playlistCover.src = playlist.playlist_art
@@ -393,6 +394,10 @@ function openAddModal() {
   document.getElementById("add-form").onsubmit = (event) => {
     handlePlaylistCreation(event);
   };
+
+  const modalTitle = document.getElementById("add-modal-header");
+  modalTitle.textContent = 'Create Playlist';
+
   const submitBtn = document.getElementById("add-submit");
   submitBtn.textContent = "Create Playlist";
   submitBtn.className = "";
@@ -429,6 +434,10 @@ function openEditModal(playlist) {
   document.getElementById("add-form").onsubmit = (event) => {
     editPlaylistSubmission(event);
   };
+
+  const modalTitle = document.getElementById("add-modal-header");
+  modalTitle.textContent = 'Update Playlist';
+
   const submitBtn = document.getElementById("add-submit");
   submitBtn.textContent = "Update Playlist";
   submitBtn.className = playlist.playlistID;

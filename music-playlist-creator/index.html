@@ -53,7 +53,7 @@
     <footer>
         <p>Created by Sophia N</p>
     </footer>
-    
+
     <aside id="playlist-modal" class="modal">
       <span class="close">&times;</span>
       <section id="modal-content">
@@ -82,6 +82,7 @@
     <aside id="add-modal" class="modal">
       <span class="close">&times;</span>
       <section id="modal-content">
+        <h3 id="add-modal-header">Create Playlist</h3>
         <form id="add-form" onsubmit="handlePlaylistCreation(event)">
           <section id="playlist-info">
             <label for="playlist-new-name">Playlist Name: </label>
@@ -108,6 +109,7 @@
             />
             <img
               id="current-cover"
+              class="playlist-cover"
               src="./assets/img/playlist.png"
               alt="Song Cover Image"
               height="50px;"
