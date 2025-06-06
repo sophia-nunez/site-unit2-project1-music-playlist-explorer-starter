@@ -32,6 +32,15 @@ async function loadHome() {
         searchPlaylists();
     })
 
+    searchBar.addEventListener('search', () => {
+        searchPlaylists();
+    })
+
+    const searchBtn = document.getElementById('search-btn');
+    searchBtn.addEventListener('click', () => {
+        searchPlaylists();
+    })
+
 }
 
 async function loadPlaylists(playlists) {
@@ -442,7 +451,6 @@ async function editPlaylistSubmission(event) {
 
 // Search
 async function searchPlaylists() {
-    console.log('searched');
     const input = document.getElementById('search-bar');
     const filter = input.value.toLowerCase();
     const playlists = await fetchData();
