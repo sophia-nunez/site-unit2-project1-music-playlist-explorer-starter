@@ -5,6 +5,7 @@
     "playlist_author": "sophia",
     "playlist_art": "assets/img/playlist_covers/playlist_0.jpg",
     "likes": 0,
+    "liked": false,
     "songs": [
       {
         "song_cover": "assets/img/album_covers/you_never_walk_alone.jpg",
@@ -35,6 +36,7 @@
     "playlist_author": "alex",
     "playlist_art": "assets/img/playlist_covers/playlist_1.jpg",
     "likes": 0,
+    "liked": false,
     "songs": [
       {
         "song_cover": "assets/img/album_covers/love_yourself_her.jpg",
@@ -72,6 +74,7 @@
     "playlist_author": "maria",
     "playlist_art": "assets/img/playlist_covers/playlist_2.jpg",
     "likes": 0,
+    "liked": false,
     "songs": [
       {
         "song_cover": "assets/img/album_covers/map_of_the_soul_persona.jpeg",
@@ -102,6 +105,7 @@
     "playlist_author": "leo",
     "playlist_art": "assets/img/playlist_covers/playlist_3.jpg",
     "likes": 0,
+    "liked": false,
     "songs": [
       {
         "song_cover": "assets/img/album_covers/2_cool_4_skool.jpg",
@@ -132,6 +136,7 @@
     "playlist_author": "sophia",
     "playlist_art": "assets/img/playlist_covers/playlist_4.jpg",
     "likes": 0,
+    "liked": false,
     "songs": [
       {
         "song_cover": "assets/img/album_covers/butter_single.png",
@@ -162,6 +167,7 @@
     "playlist_author": "nina",
     "playlist_art": "assets/img/playlist_covers/playlist_5.jpg",
     "likes": 0,
+    "liked": false,
     "songs": [
       {
         "song_cover": "assets/img/album_covers/wings.jpg",
@@ -192,6 +198,7 @@
     "playlist_author": "alex",
     "playlist_art": "assets/img/playlist_covers/playlist_6.jpg",
     "likes": 0,
+    "liked": false,
     "songs": [
       {
         "song_cover": "assets/img/album_covers/love_yourself_tear.jpg",
@@ -222,6 +229,7 @@
     "playlist_author": "maria",
     "playlist_art": "assets/img/playlist_covers/playlist_7.jpg",
     "likes": 0,
+    "liked": false,
     "songs": [
       {
         "song_cover": "assets/img/album_covers/map_of_the_soul_persona.jpeg",

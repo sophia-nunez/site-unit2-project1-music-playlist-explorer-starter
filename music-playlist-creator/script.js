@@ -1,22 +1,37 @@
+function fetchData() {
+  return fetch('./data/data.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+}
+
 // Playlist JS
+let playlists = []
+fetchData().then(data => {
+    playlists = data;
+    console.log('playlist in fetch: ' + playlists);
+    console.log('data in fetch: ' + data);
+    
+    if (document.body.classList.contains('home-page')) {
+        loadHome(playlists);
+    } else {
+        loadFeatured(playlists);
+    }
+});
+
 const playlistCards = document.getElementById('playlist-cards');
 const modalContent = document.getElementById('modal-content');
 
-async function fetchData() {
-       try {
-           const response = await fetch('./data/data.json');
-           if (!response.ok) {
-               throw new Error(`HTTP error! Status: ${response.status}`);
-           }
-           const data = await response.json();
-           return data;
-       } catch (error) {
-           console.error('Fetch error:', error);
-       }
-   }
 
-async function loadHome() {
-    loadPlaylists(await fetchData());
+function loadHome() {
+    console.log('playlist in function: ' + playlists);
+    loadPlaylists(playlists);
 
     const pageName = document.getElementById('page-name');
     pageName.textContent = 'All Playlists';
@@ -43,7 +58,7 @@ async function loadHome() {
 
 }
 
-async function loadPlaylists(playlists) {
+function loadPlaylists(playlists) {
     playlistCards.innerHTML = `
         <article id="add-container" class="playlist">
             <i id="add-btn" class="fa fa-plus" aria-hidden="true"></i>
@@ -53,6 +68,8 @@ async function loadPlaylists(playlists) {
     if (playlists.length === 0) {
         const noLists = document.createElement('h3');
         noLists.textContent = 'No playlists added';
+        noLists.id = 'no-lists';
+        playlistCards.appendChild(noLists);
     } else {
         playlists.forEach(playlist => {
             let playlistCard = document.createElement('article');
@@ -82,9 +99,10 @@ function createPlaylistCard(playlist) {
                     <h3 class="playlist-name">${playlist.playlist_name}</h3>
                     <p>${playlist.playlist_author}</p>
                 </div>
-                    <button class="like-container" onclick="likePlaylist(event)" data-liked="false"><i id="icon" class="fa-regular fa-heart heart-icon"></i><span class="like-count">${playlist.likes}</span></button>
+                    <button class="like-container" onclick="likePlaylist(event)" data-id="${playlist.playlistID}"><i id="icon${playlist.playlistID}" class="fa-heart heart-icon ${playlist.liked ? "fa-solid" : "fa-regular"}"></i><span class="like-count">${playlist.liked ? "1" : "0"}</span></button>
             </section>
             `;
+
 
     return playlistHTML;
 }
@@ -93,19 +111,27 @@ function likePlaylist(event) {
     event.stopPropagation(); // prevent modal from opening
     const likeButton = event.target;
     const heartIcon = likeButton.firstChild;
-    if (likeButton.dataset.liked === "false") {
-        likeButton.dataset.liked = "true";
+    const id = likeButton.dataset.id;
+    
+    const playlist = playlists.find(playlist => playlist.playlistID === id);
+    
+    console.log(playlist.liked);
+    if (playlist.liked === false) {
+        playlist.liked = !playlist.liked;
         // change icon based on current state
-       heartIcon.className = "fa-solid fa-heart heart-icon"
-       // update display
+        heartIcon.className = "fa-solid fa-heart heart-icon";
+        // update display
         likeButton.querySelector('.like-count').textContent = '1';
 
     } else {
-        likeButton.dataset.liked = "false";
+        console.log('else');
+        playlist.liked = false;
         heartIcon.className = "fa-regular fa-heart heart-icon";
         // update display
         likeButton.querySelector('.like-count').textContent = '0';
     }
+
+    console.log(playlist.liked);
 }
 
 // Modal JS
@@ -175,8 +201,7 @@ function loadSongs(songs) {
     });
 }
 
-async function shuffleSongs(playlist) {
-    let playlists = await fetchData();
+function shuffleSongs(playlist) {
     let shuffledSongs = playlist.songs;
     let updatedID = playlist.playlistID;
     // randomize array
@@ -194,12 +219,11 @@ async function shuffleSongs(playlist) {
 const featuredCard = document.getElementById('featured-container');
 
 
-async function loadFeatured() {    
+function loadFeatured() {    
     const pageName = document.getElementById('page-name');
     pageName.textContent = 'Featured Playlist';
 
     // get playlists and select random index
-    const playlists = await fetchData();
     const randomIndex = Math.floor(Math.random() * playlists.length);
     const playlist = playlists[randomIndex];
 
@@ -240,19 +264,18 @@ async function loadFeatured() {
 }
 
 // stretch features
-async function editPlaylist(event) {
+function editPlaylist(event) {
     event.stopPropagation();
-    const playlists = await fetchData();
+
     // find playlist by id
     const playlist = playlists.find(playlist => playlist.playlistID === event.target.id);
         
     openEditModal(playlist);
 }
 
-async function deletePlaylist(event) {
+function deletePlaylist(event) {
     event.stopPropagation();
 
-    let playlists = await fetchData();
     // filter out the playlist with the id that matches
     playlists = playlists.filter(playlist => playlist.playlistID !== event.target.id);
     // reload playlists
@@ -299,10 +322,9 @@ function addSongSection(event) {
     numSongs++;
 }
 
-async function handlePlaylistCreation(event) {
+function handlePlaylistCreation(event) {
     event.preventDefault();
     console.log('playlist created');
-    let playlists = await fetchData();
 
     // playlist info
     const playlist_name = document.getElementById('playlist-new-name').value;
@@ -337,13 +359,15 @@ async function handlePlaylistCreation(event) {
         playlist_author,
         playlist_art,
         songs,
-        likes: 0
+        likes: 0,
+        liked: false
     }
 
     numSongs = 0;
     playlists.unshift(newPlaylist);
 
     closeAddModal();
+    document.getElementById('no-lists').remove();
     loadPlaylists(playlists);
     // const playlistCards = document.getElementById('playlist-cards');
     // playlistCards.insertBefore(createPlaylist(newPlaylist), playlistCards.firstChild);
@@ -398,11 +422,10 @@ function openEditModal(playlist) {
 }
 
 // TODO: add functionality to edit songs and cover
-async function editPlaylistSubmission(event) {
+function editPlaylistSubmission(event) {
     event.preventDefault();
     const submitBtn = document.getElementById('add-submit');
     const playlistId = submitBtn.className;
-    let playlists = await fetchData();
     const playlist = playlists.find(playlist => playlist.playlistID === playlistId);
 
     if (!playlist) {
@@ -450,10 +473,9 @@ async function editPlaylistSubmission(event) {
 
 
 // Search
-async function searchPlaylists() {
+function searchPlaylists() {
     const input = document.getElementById('search-bar');
     const filter = input.value.toLowerCase();
-    const playlists = await fetchData();
 
     const filtered = playlists.filter(playlist =>
         playlist.playlist_name.toLowerCase().includes(filter) ||
@@ -464,7 +486,7 @@ async function searchPlaylists() {
 }
 
 // Sorting
-async function sortNames() {
+function sortNames() {
     const sortBtn = document.getElementById('sort-name');
     sortBtn.style.backgroundColor = 'black';
     sortBtn.style.color = '#e9e2f5';
@@ -477,7 +499,6 @@ async function sortNames() {
     otherBtn2.style.backgroundColor = '#1d013b';
     otherBtn2.style.color = '#d3c2f1';
 
-    const playlists = await fetchData();
     let sortedPlaylists = [...playlists];
 
     sortedPlaylists.sort((a, b) =>
@@ -488,7 +509,7 @@ async function sortNames() {
     loadPlaylists(sortedPlaylists);
 }
 
-async function sortLikes() {
+function sortLikes() {
     const sortBtn = document.getElementById('sort-likes');
     sortBtn.style.backgroundColor = 'black';
     sortBtn.style.color = '#e9e2f5';
@@ -501,26 +522,23 @@ async function sortLikes() {
     otherBtn2.style.backgroundColor = '#1d013b';
     otherBtn2.style.color = '#d3c2f1';
 
-    const playlists = await fetchData();
     let sortedPlaylists = [...playlists];
 
     const likeButtons = document.querySelectorAll('.like-container');
     sortedPlaylists.sort((a, b) => {
-            const indexA = playlists.indexOf(a);
-            const indexB = playlists.indexOf(b);
         
             // change to boolean - liked is true, not is false
-            const likedA = likeButtons[indexA].dataset.liked === 'true';
-            const likedB = likeButtons[indexB].dataset.liked === 'true';
+            // const likedA = a.liked === 'true';
+            // const likedB = b.liked === 'true';
         
             // sort liked as first
-            return likedA === likedB ? 0 : likedA ? -1 : 1;
+            return a.liked === b.liked ? 0 : a.liked ? -1 : 1;
         });
 
     loadPlaylists(sortedPlaylists);
 }
 
-async function sortDates() {
+function sortDates() {
     const sortBtn = document.getElementById('sort-date');
     sortBtn.style.backgroundColor = 'black';
     sortBtn.style.color = '#e9e2f5';
@@ -532,8 +550,6 @@ async function sortDates() {
     const otherBtn2 = document.getElementById('sort-name');
     otherBtn2.style.backgroundColor = '#1d013b';
     otherBtn2.style.color = '#d3c2f1';
-
-    const playlists = await fetchData();
 
     // array comes with playlists in order they were added :)
     loadPlaylists(playlists);

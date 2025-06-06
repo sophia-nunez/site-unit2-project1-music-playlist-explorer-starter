@@ -107,6 +107,12 @@ nav {
     justify-content: space-evenly;
 }
 
+#no-lists {
+    color: var(--lightpurple);
+    margin: 0px 20px;
+    align-self: center;
+}
+
 .playlist:hover {
     box-shadow: 0px 0px 10px 2px var(--hoverpurple);
     background-color: var(--hoverpurple);
