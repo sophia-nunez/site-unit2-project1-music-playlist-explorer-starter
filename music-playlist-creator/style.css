@@ -258,6 +258,8 @@ h2 {
         grid-template-columns: repeat(4, 1fr);
         justify-items: center;
         margin: 20px;
+        /* width: 100%; */
+        max-width: 512px;
     }
 
     .playlist {

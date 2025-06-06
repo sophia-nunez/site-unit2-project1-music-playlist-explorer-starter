@@ -121,18 +121,23 @@ function likePlaylist(event) {
 }
 
 // Modal JS
-const modal = document.getElementById("playlist-modal");
+const playlistModal = document.getElementById("playlist-modal");
 const span = document.getElementsByClassName('close')[0];
 
 span.onclick = function() {
-    modal.style.display = "none";
+    playlistModal.style.display = "none";
 }
 
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == playlistModal) {
+    playlistModal.style.display = "none";
   }
+
+    if (event.target == addModal) {
+        closeAddModal();
+    }
 }
+
 const playlistCover = document.getElementById('playlist-cover');
 const playlistName = document.getElementById('playlist-name');
 const creatorName = document.getElementById('creator-name');
@@ -146,7 +151,7 @@ const songCards = document.getElementById('song-cards');
 
 function openModal(playlist) {
 
-    modal.style.display = "block";
+    playlistModal.style.display = "block";
     playlistCover.src = playlist.playlist_art;
     playlistName.textContent = playlist.playlist_name;
     creatorName.textContent = playlist.playlist_author;
@@ -252,7 +257,9 @@ async function editPlaylist(event) {
     const playlists = await fetchData();
     // find playlist by id
     const playlist = playlists.find(playlist => playlist.playlistID === event.target.id);
-
+    
+    console.log(playlist.playlistID);
+    
     openEditModal(playlist);
 }
 
@@ -385,30 +392,72 @@ addSpan.onclick = function() {
     closeAddModal();
 }
 
-window.onclick = function(event) {
-    if (event.target == addModal) {
-        closeAddModal();
-  }
-}
 
 function openEditModal(playlist) {
     addModal.style.display = 'block';
     document.getElementById('add-form').onsubmit = (event) => {
         editPlaylistSubmission(event);
     }
-
+    const submitBtn = document.getElementById('add-submit');
+    submitBtn.className = playlist.playlistID;
+    
     const playlist_name = document.getElementById('playlist-new-name');
     const playlist_author = document.getElementById('author');
     const playlist_art = document.getElementById('cover-image');
-
+    
     document.getElementById('current-cover').src = `${playlist.playlist_art}`
     playlist_name.value = `${playlist.playlist_name}`;
     playlist_author.value = `${playlist.playlist_author}`;
     playlist_art.value = `${playlist.playlist_art}`;
 }
 
-function editPlaylistSubmission(event) {
+// TODO: add functionality to edit songs and cover
+async function editPlaylistSubmission(event) {
     event.preventDefault();
-    console.log('editing');
+    const submitBtn = document.getElementById('add-submit');
+    const playlistId = submitBtn.className;
+    let playlists = await fetchData();
+    const playlist = playlists.find(playlist => playlist.playlistID === playlistId);
+
+    if (!playlist) {
+        console.error('Playlist not found');
+        return;
+    }
+
+    // playlist info
+    const playlist_name = document.getElementById('playlist-new-name').value;
+    const playlist_author = document.getElementById('author').value;
+    // const playlist_art = "assets/img/playlist.png"; // document.getElementById('cover-image').value;
+    // const songs = [];
+
+    // song info, make a song for each song added
+    // for (i = 0; i < numSongs; i++) {
+    //     const song_title = document.getElementById(`song-name${i}`).value;
+    //     const artist_name = document.getElementById(`artist-name${i}`).value;
+    //     const album_name = document.getElementById(`album-name${i}`).value;
+    //     const timestamp = document.getElementById(`song-length${i}`).value;
+
+    //     //const song_cover = document.getElementById('song-cover').value;
+
+    //     const newSong = {
+    //         song_title,
+    //         artist_name,
+    //         album_name,
+    //         timestamp,
+    //         song_cover: 'assets/img/playlist.png'
+    //     }
+
+    //     songs.push(newSong);
+    // }
+
+    // update playlist object
+    playlist.playlist_name = playlist_name;
+    playlist.playlist_author = playlist_author;
+    // playlist.playlist_art = playlist_art; // base64 or file path
+    // playlist.songs = updatedSongsArray;
+
+    numSongs = 0;
+    loadPlaylists(playlists);
+
     closeAddModal();
 }
