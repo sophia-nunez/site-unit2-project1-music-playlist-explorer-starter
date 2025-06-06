@@ -263,7 +263,6 @@ h2 {
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     margin: 20px;
-    width: 100%;
     /* TODO max width for very wide screens? */
     /* max-width: 512px; */
   }
