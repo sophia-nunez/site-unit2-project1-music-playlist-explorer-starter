@@ -15,8 +15,6 @@ function fetchData() {
 let playlists = []
 fetchData().then(data => {
     playlists = data;
-    console.log('playlist in fetch: ' + playlists);
-    console.log('data in fetch: ' + data);
     
     if (document.body.classList.contains('home-page')) {
         loadHome(playlists);
@@ -30,7 +28,6 @@ const modalContent = document.getElementById('modal-content');
 
 
 function loadHome() {
-    console.log('playlist in function: ' + playlists);
     loadPlaylists(playlists);
 
     const pageName = document.getElementById('page-name');
@@ -311,12 +308,12 @@ function addSongSection(event) {
 
             <label for="song-length${numSongs}">Song Length: </label>
             <input type="text" id="song-length${numSongs}" name="song-length${numSongs}">
-
-            <br />
-
-            <label for="song-cover${numSongs}">Song Cover: </label>
-            <input type="file" id="song-cover${numSongs}" name="song-cover${numSongs}" accept="image/png, image/jpeg" />
         `;
+
+        // <br /> For song cover
+
+        //     <label for="song-cover${numSongs}">Song Cover: </label>
+        //     <input type="file" id="song-cover${numSongs}" name="song-cover${numSongs}" accept="image/png, image/jpeg" />
 
     songSection.insertBefore(newSong, songSection.firstChild);
     numSongs++;
@@ -329,7 +326,8 @@ function handlePlaylistCreation(event) {
     // playlist info
     const playlist_name = document.getElementById('playlist-new-name').value;
     const playlist_author = document.getElementById('author').value;
-    const playlist_art = "assets/img/playlist.png"; // document.getElementById('cover-image').value;
+    const imgFile = document.getElementById('cover-image').files[0];
+    const playlist_art = window.URL.createObjectURL(imgFile);
     const songs = [];
 
     // song info, make a song for each song added
@@ -367,7 +365,10 @@ function handlePlaylistCreation(event) {
     playlists.unshift(newPlaylist);
 
     closeAddModal();
-    document.getElementById('no-lists').remove();
+    const noList = document.getElementById('no-lists')
+    if (noList) {
+        noList.remove();
+    }
     loadPlaylists(playlists);
     // const playlistCards = document.getElementById('playlist-cards');
     // playlistCards.insertBefore(createPlaylist(newPlaylist), playlistCards.firstChild);
@@ -380,6 +381,9 @@ function openAddModal() {
     document.getElementById('add-form').onsubmit = (event) => {
         handlePlaylistCreation(event);
     };
+    const submitBtn = document.getElementById('add-submit');
+    submitBtn.textContent = "Create Playlist";
+    submitBtn.className = '';
 }
 
 function closeAddModal() {
@@ -394,6 +398,9 @@ function closeAddModal() {
 
     addModal.style.display = "none";
     addModal.style.pointerEffects = "none";
+
+    editSongs = document.getElementById('song-section');
+    editSongs.innerHTML = '';
 }
 
 const addSpan = document.getElementsByClassName('close')[1];
@@ -409,6 +416,7 @@ function openEditModal(playlist) {
         editPlaylistSubmission(event);
     }
     const submitBtn = document.getElementById('add-submit');
+    submitBtn.textContent = "Update Playlist";
     submitBtn.className = playlist.playlistID;
     
     const playlist_name = document.getElementById('playlist-new-name');
@@ -418,7 +426,36 @@ function openEditModal(playlist) {
     document.getElementById('current-cover').src = `${playlist.playlist_art}`
     playlist_name.value = `${playlist.playlist_name}`;
     playlist_author.value = `${playlist.playlist_author}`;
-    playlist_art.value = `${playlist.playlist_art}`;
+    //playlist_art.value = `${playlist.playlist_art}`;
+
+    editSongs = document.getElementById('song-section');
+    playlist.songs.forEach(song => {
+        let songCard = document.createElement('article');
+                songCard.className = 'song-card';
+                songCard.innerHTML = 
+                    `
+                        <div class="flex-container">
+                            <img id="song-cover" src=${song.song_cover} alt="Song Cover Image" height="50px;"/>
+                            <div>
+                                <p id="song-title">${song.song_title}</p>
+                                <p id="artist-name">${song.artist_name}</p>
+                                <p id="album-name">${song.album_name}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p id="timestamp">${song.timestamp}</p>
+                            <i class="fa fa-trash" aria-hidden="true" onclick="deleteSong(event)" id="${song.song_title}"></i>
+                        </div>
+                    `;
+                editSongs.appendChild(songCard);
+    });
+}
+
+let songsToDelete = [];
+function deleteSong(event) {
+    const songName = event.target.id;
+    songsToDelete.push(songName);
+    console.log(songsToDelete);
 }
 
 // TODO: add functionality to edit songs and cover
@@ -436,34 +473,50 @@ function editPlaylistSubmission(event) {
     // playlist info
     const playlist_name = document.getElementById('playlist-new-name').value;
     const playlist_author = document.getElementById('author').value;
-    // const playlist_art = "assets/img/playlist.png"; // document.getElementById('cover-image').value;
-    // const songs = [];
+    const imgFile = document.getElementById('cover-image').files[0];
+    if (imgFile) {
+        const playlist_art = window.URL.createObjectURL(imgFile);
+    } else {
+        playlist_art = '';
+    }
 
+
+    // remove deleted songs
+    playlist.songs = playlist.songs.filter(song => !songsToDelete.includes(song.song_title));
+
+    songsToDelete = [];
+
+    songs = playlist.songs;
+    
     // song info, make a song for each song added
-    // for (i = 0; i < numSongs; i++) {
-    //     const song_title = document.getElementById(`song-name${i}`).value;
-    //     const artist_name = document.getElementById(`artist-name${i}`).value;
-    //     const album_name = document.getElementById(`album-name${i}`).value;
-    //     const timestamp = document.getElementById(`song-length${i}`).value;
+    for (i = 0; i < numSongs; i++) {
+        const song_title = document.getElementById(`song-name${i}`).value;
+        const artist_name = document.getElementById(`artist-name${i}`).value;
+        const album_name = document.getElementById(`album-name${i}`).value;
+        const timestamp = document.getElementById(`song-length${i}`).value;
 
-    //     //const song_cover = document.getElementById('song-cover').value;
+        //const song_cover = document.getElementById('song-cover').value;
 
-    //     const newSong = {
-    //         song_title,
-    //         artist_name,
-    //         album_name,
-    //         timestamp,
-    //         song_cover: 'assets/img/playlist.png'
-    //     }
+        const newSong = {
+            song_title,
+            artist_name,
+            album_name,
+            timestamp,
+            song_cover: 'assets/img/playlist.png'
+        }
 
-    //     songs.push(newSong);
-    // }
+        songs.push(newSong);
+    }
 
+    console.log(songs);
+    console.log(playlist_art);
     // update playlist object
     playlist.playlist_name = playlist_name;
     playlist.playlist_author = playlist_author;
-    // playlist.playlist_art = playlist_art; // base64 or file path
-    // playlist.songs = updatedSongsArray;
+    if (playlist_art !== '') {
+        playlist.playlist_art = playlist_art;
+    }
+    playlist.songs = songs;
 
     numSongs = 0;
     loadPlaylists(playlists);

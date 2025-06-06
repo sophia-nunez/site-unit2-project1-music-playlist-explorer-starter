@@ -323,7 +323,7 @@ h2 {
     transform: translate(30%, -30%);
 }
 
-.fa-trash {
+.playlist .fa-trash {
     position: absolute;
     transform: translate(30%, 100%);
 }
