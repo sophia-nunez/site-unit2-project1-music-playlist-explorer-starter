@@ -462,3 +462,79 @@ async function searchPlaylists() {
 
     loadPlaylists(filtered);
 }
+
+// Sorting
+async function sortNames() {
+    const sortBtn = document.getElementById('sort-name');
+    sortBtn.style.backgroundColor = 'black';
+    sortBtn.style.color = '#e9e2f5';
+
+    // reset the others
+    const otherBtn1 = document.getElementById('sort-likes');
+    otherBtn1.style.backgroundColor = '#1d013b';
+    otherBtn1.style.color = '#d3c2f1';
+    const otherBtn2 = document.getElementById('sort-date');
+    otherBtn2.style.backgroundColor = '#1d013b';
+    otherBtn2.style.color = '#d3c2f1';
+
+    const playlists = await fetchData();
+    let sortedPlaylists = [...playlists];
+
+    sortedPlaylists.sort((a, b) =>
+        {
+            return a.playlist_name.toLowerCase().localeCompare(b.playlist_name.toLowerCase())
+        });
+
+    loadPlaylists(sortedPlaylists);
+}
+
+async function sortLikes() {
+    const sortBtn = document.getElementById('sort-likes');
+    sortBtn.style.backgroundColor = 'black';
+    sortBtn.style.color = '#e9e2f5';
+
+    // reset the others
+    const otherBtn1 = document.getElementById('sort-name');
+    otherBtn1.style.backgroundColor = '#1d013b';
+    otherBtn1.style.color = '#d3c2f1';
+    const otherBtn2 = document.getElementById('sort-date');
+    otherBtn2.style.backgroundColor = '#1d013b';
+    otherBtn2.style.color = '#d3c2f1';
+
+    const playlists = await fetchData();
+    let sortedPlaylists = [...playlists];
+
+    const likeButtons = document.querySelectorAll('.like-container');
+    sortedPlaylists.sort((a, b) => {
+            const indexA = playlists.indexOf(a);
+            const indexB = playlists.indexOf(b);
+        
+            // change to boolean - liked is true, not is false
+            const likedA = likeButtons[indexA].dataset.liked === 'true';
+            const likedB = likeButtons[indexB].dataset.liked === 'true';
+        
+            // sort liked as first
+            return likedA === likedB ? 0 : likedA ? -1 : 1;
+        });
+
+    loadPlaylists(sortedPlaylists);
+}
+
+async function sortDates() {
+    const sortBtn = document.getElementById('sort-date');
+    sortBtn.style.backgroundColor = 'black';
+    sortBtn.style.color = '#e9e2f5';
+
+    // reset the others
+    const otherBtn1 = document.getElementById('sort-likes');
+    otherBtn1.style.backgroundColor = '#1d013b';
+    otherBtn1.style.color = '#d3c2f1';
+    const otherBtn2 = document.getElementById('sort-name');
+    otherBtn2.style.backgroundColor = '#1d013b';
+    otherBtn2.style.color = '#d3c2f1';
+
+    const playlists = await fetchData();
+
+    // array comes with playlists in order they were added :)
+    loadPlaylists(playlists);
+}

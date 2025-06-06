@@ -24,8 +24,18 @@
 
     <main>
         <div id="search-section">
-            <i class="fa fa-search" id="search-btn" aria-hidden="true" type="submit"></i>
-            <input type="search" id="search-bar" placeholder="Search..">
+            <div id="search">
+                <i class="fa fa-search" id="search-btn" aria-hidden="true" type="submit"></i>
+                <input type="search" id="search-bar" placeholder="Search..">
+            </div>
+                <div id="sort-bar">
+                    <!-- <p>Sort by:</p> -->
+                    <div id ="sort-btns">
+                        <button id="sort-name" onclick="sortNames()">Name</button>
+                        <button id="sort-likes" onclick="sortLikes()">Likes</button>
+                        <button id="sort-date" onclick="sortDates()">Date</button>
+                    </div>
+                </div>
         </div>
 
         <section id="playlist-cards">
