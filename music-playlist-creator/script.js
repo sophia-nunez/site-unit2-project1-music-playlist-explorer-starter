@@ -38,8 +38,13 @@ function loadHome() {
     openAddModal();
   });
 
+  const searchSubmitBtn = document.getElementById("search-btn");
+  searchSubmitBtn.addEventListener("submit", () => {
+    searchPlaylists();
+  });
+
   const searchBar = document.getElementById("search-bar");
-  searchBar.addEventListener("keyup", () => {
+  searchBar.addEventListener("submit", () => {
     searchPlaylists();
   });
 
