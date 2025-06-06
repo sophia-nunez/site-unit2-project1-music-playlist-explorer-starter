@@ -3,24 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Featured Playlist</title>
+    <title>MPE | Featured Playlist</title>
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="modal.css" />
   </head>
   <body onload="loadFeatured()">
-    <header>
-        <a id="home" class="logo-container" href="index.html"><strong><i class="fa fa-home" aria-hidden="true"></i></strong></a>
-        <h1>Music Playlist Explorer</h1>
-    </header>
-
     <nav>
-        <a id="index" href="index.html"><strong>Home</strong></a>
+        <h3 id="website" ><i class="fa-solid fa-music"></i>Music Playlist Explorer</h3>
+        <a id="index" href="index.html"><strong>All</strong></a>
         <a id="featured" href="featured.html"><strong>Featured</strong></a>
     </nav>
 
+    <header>
+        <h1 id="page-name"></h1>
+    </header>
+
     <main>
-        <h2>Featured Playlist:</h2>
         <article class="playlist" id="featured-container">
             <!-- playlist information dynamically loaded -->
         </article>

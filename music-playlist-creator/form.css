@@ -1,0 +1,25 @@
+form {
+    margin: auto;
+
+    * {
+        margin: 10px 5px;
+    }
+
+    input {
+        border-radius: 10px;
+        height: 35px;
+        width: 80%;
+    }
+
+    label {
+        color: black;
+    }
+}
+
+#add-song-btn {
+    color: black;
+}
+
+#playlist-new-name {
+    width: 80%;
+}

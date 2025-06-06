@@ -36,8 +36,12 @@ header, footer {
 
 header {
     display: grid;
-    grid-template-columns: 50px 1fr;
+    font-size: larger;
+    h1 {
+        margin-left: 12px;
+    }
 }
+
 
 footer {
     margin: 0;
@@ -57,8 +61,9 @@ footer {
 
 nav {
     width: 100%;
+    border-bottom: 1px solid var(--purple);
     justify-content: end;
-    border-top: 1px solid var(--purple);
+    align-items: center;
     display: flex;
     flex-direction: row;
     background-color: var(--darkpurple);
@@ -77,6 +82,17 @@ nav {
     a:hover {
         background-color: #413658;
     }
+
+    #website {
+        margin-right: auto;
+        margin-left: 15px;
+        color: var(--lightpurple);
+    }
+}
+
+.fa-music {
+    color: var(--lightpurple);
+    margin-right: 8px;
 }
 
 #home {
@@ -176,9 +192,32 @@ p {
 }
 
 #featured-container {
-    width: 70%;
-    margin: auto;
+    width: 90%;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: row;
 
+    #featured-songs {
+        width: 100%
+    }
+}
+
+#featured-playlist {
+    width: 90%;
+    height: 60%;
+}
+
+#featured-info {
+    width: 100%;
+}
+
+.featured-cover {
+    width: 80%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-top: 3px;
+    border-radius: 20px;
 }
 
 h2 {
@@ -263,6 +302,11 @@ h2 {
     font-size: 15px; 
     top: 0;
     right: 0;   
+    visibility: hidden;
+}
+
+.playlist:hover .playlist-icon {
+    visibility: visible;
 }
 
 .fa-pencil {
@@ -280,7 +324,17 @@ h2 {
     background-color: #1d013bb9;
 }
 
+.fa-trash:hover {
+    color: white;
+    background-color: red;
+}
+
 .img-wrapper {
   position: relative;
   display: inline-block;
+}
+
+#current-cover {
+    height: 100px;
+    margin: 0px 40px;
 }

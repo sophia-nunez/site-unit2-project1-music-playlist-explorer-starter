@@ -4,29 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Music Playlist Explorer</title>
+    <title>MPE | Music Playlist Explorer</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="form.css" />
   </head>
-  <body onload="loadPlaylists()">
-    <header>
-        <a id="home" class="logo-container" href="index.html"><strong><i class="fa fa-home" aria-hidden="true"></i></strong></a>
-        <h1>Music Playlist Explorer</h1>
-
-    </header>
-
-    <nav>
-        <a id="index" href="index.html"><strong>Home</strong></a>
+  <body onload="loadHome()">
+      <nav>
+        
+        <h3 id="website"><i class="fa-solid fa-music"></i>Music Playlist Explorer</h3>
+        <a id="index" href="index.html"><strong>All</strong></a>
         <a id="featured" href="featured.html"><strong>Featured</strong></a>
     </nav>
+    
+    <header>
+        <h1 id="page-name"></h1>
+    </header>
 
     <main>
       <section id="playlist-cards">
-        <article id="add-container" class="playlist">
-            <i id="add-btn" class="fa fa-plus" aria-hidden="true"></i>
-        </article>
         <!-- dynamically generated -->
       </section>
     </main>
@@ -45,6 +43,39 @@
             <section id="song-cards">
                 <!-- song cards here from script -->
             </section>
+        </section>
+    </aside>
+
+    <!-- add modal -->
+    <aside id="add-modal" class="modal">
+        <span class="close">&times;</span>
+        <section id="modal-content">
+            <form id="add-form" onsubmit="handlePlaylistCreation(event)">
+                <section id="playlist-info">
+
+                    <label for="playlist-new-name">Playlist Name: </label>
+                    <input type="text" id="playlist-new-name" name="playlist_name">
+    
+                    <br />
+    
+                    <label for="author">Author: </label><br />
+                    <input type="text" id="author" name="author">
+    
+                    <br />
+    
+                    <label for="cover-image">Cover Image: </label><br />
+                    <input type="text" id="cover-image" name="cover-image" accept="image/png, image/jpeg" />
+                    <img id="current-cover">
+                    
+                </section>
+                <br />
+                <button id="add-song-btn" onclick="addSongSection(event)">Add Song +</button>
+                <section id="song-section">
+
+                </section>
+                
+                <button id="add-submit" type="submit">Create Playlist</button>
+            </form>
         </section>
     </aside>
 
