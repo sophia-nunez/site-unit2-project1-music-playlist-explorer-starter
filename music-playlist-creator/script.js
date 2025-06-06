@@ -403,7 +403,7 @@ function closeAddModal() {
   const playlist_author = document.getElementById("author");
   const playlist_art = document.getElementById("cover-image");
 
-  document.getElementById("current-cover").src = "";
+  document.getElementById("current-cover").src = "./assets/img/playlist.png";
   playlist_name.value = "";
   playlist_author.value = "";
   playlist_art.value = "";
