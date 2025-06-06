@@ -53,6 +53,10 @@ function loadHome() {
         searchPlaylists();
     })
 
+    const sortBtn = document.getElementById('sort-date');
+    sortBtn.style.backgroundColor = 'black';
+    sortBtn.style.color = '#e9e2f5';
+
 }
 
 function loadPlaylists(playlists) {
@@ -444,7 +448,7 @@ function openEditModal(playlist) {
                 songCard.innerHTML = 
                     `
                         <div class="flex-container">
-                            <img id="song-cover" src=${song.song_cover} alt="Song Cover Image" height="50px;"/>
+                            
                             <div>
                                 <p id="song-title">${song.song_title}</p>
                                 <p id="artist-name">${song.artist_name}</p>
