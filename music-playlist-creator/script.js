@@ -287,27 +287,27 @@ function addSongSection(event) {
     const songSection = document.getElementById('song-section');
 
     const newSong = document.createElement('section');
-    newSong.className = "song";
+    newSong.className = "song song-card";
 
     newSong.innerHTML =
         `
             <label for="song-name${numSongs}">Song Name: </label>
-            <input type="text" id="song-name${numSongs}" name="song-name${numSongs}">
+            <input type="text" id="song-name${numSongs}" name="song-name${numSongs}" required>
         
             <br />
         
             <label for="artist-name${numSongs}">Song Artist: </label>
-            <input type="text" id="artist-name${numSongs}" name="artist-name${numSongs}">
+            <input type="text" id="artist-name${numSongs}" name="artist-name${numSongs}" required>
 
             <br />
 
             <label for="album-name${numSongs}">Album Name: </label>
-            <input type="text" id="album-name${numSongs}" name="album-name${numSongs}">
+            <input type="text" id="album-name${numSongs}" name="album-name${numSongs}" required>
 
             <br />
 
             <label for="song-length${numSongs}">Song Length: </label>
-            <input type="text" id="song-length${numSongs}" name="song-length${numSongs}">
+            <input type="text" id="song-length${numSongs}" name="song-length${numSongs}" required>
         `;
 
         // <br /> For song cover
@@ -513,8 +513,6 @@ function editPlaylistSubmission(event) {
         songs.push(newSong);
     }
 
-    console.log(songs);
-    console.log(playlist_art);
     // update playlist object
     playlist.playlist_name = playlist_name;
     playlist.playlist_author = playlist_author;
