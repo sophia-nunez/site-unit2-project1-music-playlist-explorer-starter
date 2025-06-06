@@ -1,4 +1,5 @@
 form {
+  color: #1d013b;
   margin: 20px 5px;
 
   * {
@@ -14,6 +15,10 @@ form {
   label {
     color: black;
   }
+
+  button {
+    border-radius: 20px;
+  }
 }
 
 #add-song-btn {
@@ -22,4 +27,11 @@ form {
 
 #playlist-new-name {
   width: 80%;
+}
+
+#add-submit {
+  padding: 10px;
+  background: #d3c2f1;
+  border-color: #1d013b;
+  color: #1d013b;
 }

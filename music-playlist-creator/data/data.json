@@ -4,7 +4,7 @@
     "playlist_name": "Chill Vibes",
     "playlist_author": "sophia",
     "playlist_art": "assets/img/playlist_covers/playlist_0.jpg",
-    "likes": 0,
+    "likes": 23,
     "liked": false,
     "songs": [
       {
@@ -35,7 +35,7 @@
     "playlist_name": "Workout Mix",
     "playlist_author": "alex",
     "playlist_art": "assets/img/playlist_covers/playlist_1.jpg",
-    "likes": 0,
+    "likes": 10,
     "liked": false,
     "songs": [
       {
@@ -73,7 +73,7 @@
     "playlist_name": "Love Songs",
     "playlist_author": "maria",
     "playlist_art": "assets/img/playlist_covers/playlist_2.jpg",
-    "likes": 0,
+    "likes": 2,
     "liked": false,
     "songs": [
       {
@@ -104,7 +104,7 @@
     "playlist_name": "Throwback BTS",
     "playlist_author": "leo",
     "playlist_art": "assets/img/playlist_covers/playlist_3.jpg",
-    "likes": 0,
+    "likes": 53,
     "liked": false,
     "songs": [
       {
@@ -135,7 +135,7 @@
     "playlist_name": "Feel-Good Anthems",
     "playlist_author": "sophia",
     "playlist_art": "assets/img/playlist_covers/playlist_4.jpg",
-    "likes": 0,
+    "likes": 9,
     "liked": false,
     "songs": [
       {
@@ -166,7 +166,7 @@
     "playlist_name": "Night Drive",
     "playlist_author": "nina",
     "playlist_art": "assets/img/playlist_covers/playlist_5.jpg",
-    "likes": 0,
+    "likes": 123,
     "liked": false,
     "songs": [
       {
@@ -228,7 +228,7 @@
     "playlist_name": "RM’s Picks",
     "playlist_author": "maria",
     "playlist_art": "assets/img/playlist_covers/playlist_7.jpg",
-    "likes": 0,
+    "likes": 12,
     "liked": false,
     "songs": [
       {

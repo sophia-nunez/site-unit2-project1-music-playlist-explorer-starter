@@ -109,7 +109,7 @@ function createPlaylistCard(playlist) {
     playlist.playlistID
   }" class="fa-heart heart-icon ${
     playlist.liked ? "fa-solid" : "fa-regular"
-  }"></i><span class="like-count">${playlist.liked ? "1" : "0"}</span></button>
+  }"></i><span class="like-count">${playlist.likes}</span></button>
             </section>
             `;
 
@@ -130,13 +130,13 @@ function likePlaylist(event) {
     // change icon based on current state
     heartIcon.className = "fa-solid fa-heart heart-icon";
     // update display
-    likeButton.querySelector(".like-count").textContent = "1";
+    likeButton.querySelector(".like-count").textContent = parseInt(likeButton.querySelector(".like-count").textContent) + 1;
   } else {
     console.log("else");
     playlist.liked = false;
     heartIcon.className = "fa-regular fa-heart heart-icon";
     // update display
-    likeButton.querySelector(".like-count").textContent = "0";
+    likeButton.querySelector(".like-count").textContent -= 1;
   }
 
   console.log(playlist.liked);
