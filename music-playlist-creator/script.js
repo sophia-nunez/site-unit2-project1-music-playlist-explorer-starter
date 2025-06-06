@@ -429,9 +429,11 @@ function openEditModal(playlist) {
     //playlist_art.value = `${playlist.playlist_art}`;
 
     editSongs = document.getElementById('song-section');
+    let songIdNum = 0;
     playlist.songs.forEach(song => {
         let songCard = document.createElement('article');
                 songCard.className = 'song-card';
+                songCard.id = `song-${songIdNum}`;
                 songCard.innerHTML = 
                     `
                         <div class="flex-container">
@@ -448,6 +450,7 @@ function openEditModal(playlist) {
                         </div>
                     `;
                 editSongs.appendChild(songCard);
+        songIdNum++;
     });
 }
 
@@ -455,10 +458,12 @@ let songsToDelete = [];
 function deleteSong(event) {
     const songName = event.target.id;
     songsToDelete.push(songName);
-    console.log(songsToDelete);
+
+
+    const songCard = event.target.closest('.song-card');
+    songCard.style.display = 'none';
 }
 
-// TODO: add functionality to edit songs and cover
 function editPlaylistSubmission(event) {
     event.preventDefault();
     const submitBtn = document.getElementById('add-submit');
