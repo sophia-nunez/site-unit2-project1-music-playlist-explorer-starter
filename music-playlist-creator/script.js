@@ -2,11 +2,6 @@
 const playlistCards = document.getElementById('playlist-cards');
 const modalContent = document.getElementById('modal-content');
 
-document.addEventListener("DOMContentLoaded", function () {
-  loadPageName();
-
-})
-
 async function fetchData() {
        try {
            const response = await fetch('./data/data.json');
@@ -20,29 +15,11 @@ async function fetchData() {
        }
    }
 
-function loadPageName() {
-    const pageName = document.getElementById('page-name');
-    const path = window.location.pathname;
-    const fileName = path.substring(path.lastIndexOf('/') + 1).toLowerCase();
-
-    let text = '';
-
-    switch (fileName) {
-        case 'index.html':
-        text = 'All Playlists';
-        break;
-        case 'featured.html':
-        text = 'Featured Playlist';
-        break;
-        default:
-        text = 'Page not recognized.';
-    }
-    console.log(text);
-    pageName.textContent = text;
-}
-
 async function loadHome() {
     loadPlaylists(await fetchData());
+
+    const pageName = document.getElementById('page-name');
+    pageName.textContent = 'All Playlists';
 
     // home page, make add button listender first
     const addBtn = document.getElementById('add-btn');
@@ -50,8 +27,10 @@ async function loadHome() {
         openAddModal();
     })
 
-    // form listener since modal is open
-    const form = document.getElementById('add-form');
+    const searchBar = document.getElementById('search-bar');
+    searchBar.addEventListener('keyup', () => {
+        searchPlaylists();
+    })
 
 }
 
@@ -207,6 +186,9 @@ const featuredCard = document.getElementById('featured-container');
 
 
 async function loadFeatured() {    
+    const pageName = document.getElementById('page-name');
+    pageName.textContent = 'Featured Playlist';
+
     // get playlists and select random index
     const playlists = await fetchData();
     const randomIndex = Math.floor(Math.random() * playlists.length);
@@ -250,16 +232,11 @@ async function loadFeatured() {
 
 // stretch features
 async function editPlaylist(event) {
-    // TODO:
-    // open Modal equivalent to AddModal but with default values of the playlist's fields
-    // instead of deleting, modify that playlist in the array since the event.target.id is the playlistID
     event.stopPropagation();
     const playlists = await fetchData();
     // find playlist by id
     const playlist = playlists.find(playlist => playlist.playlistID === event.target.id);
-    
-    console.log(playlist.playlistID);
-    
+        
     openEditModal(playlist);
 }
 
@@ -392,7 +369,7 @@ addSpan.onclick = function() {
     closeAddModal();
 }
 
-
+// Editing helpers
 function openEditModal(playlist) {
     addModal.style.display = 'block';
     document.getElementById('add-form').onsubmit = (event) => {
@@ -460,4 +437,20 @@ async function editPlaylistSubmission(event) {
     loadPlaylists(playlists);
 
     closeAddModal();
+}
+
+
+// Search
+async function searchPlaylists() {
+    console.log('searched');
+    const input = document.getElementById('search-bar');
+    const filter = input.value.toLowerCase();
+    const playlists = await fetchData();
+
+    const filtered = playlists.filter(playlist =>
+        playlist.playlist_name.toLowerCase().includes(filter) ||
+        playlist.playlist_author.toLowerCase().includes(filter)
+    );
+
+    loadPlaylists(filtered);
 }

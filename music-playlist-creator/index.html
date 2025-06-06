@@ -13,7 +13,6 @@
   </head>
   <body onload="loadHome()">
       <nav>
-        
         <h3 id="website"><i class="fa-solid fa-music"></i>Music Playlist Explorer</h3>
         <a id="index" href="index.html"><strong>All</strong></a>
         <a id="featured" href="featured.html"><strong>Featured</strong></a>
@@ -24,9 +23,15 @@
     </header>
 
     <main>
-      <section id="playlist-cards">
-        <!-- dynamically generated -->
-      </section>
+        <div id="search-section">
+            <i class="fa fa-search" aria-hidden="true" type="submit"></i>
+            <input type="search" id="search-bar" placeholder="Search..">
+            <p id="clear-search">x</p>
+        </div>
+
+        <section id="playlist-cards">
+            <!-- dynamically generated -->
+        </section>
     </main>
 
     <aside id="playlist-modal" class="modal">

@@ -24,7 +24,7 @@ main {
     flex-direction: column;
     height: fit-content;
     min-height: 100vh;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 header, footer {
@@ -101,7 +101,7 @@ nav {
 }
 
 #playlist-cards {
-    margin: auto;
+    margin: 14px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -237,7 +237,7 @@ h2 {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         justify-items: center;
-        margin: auto;
+        margin: 14px auto;
     }
 
     .playlist {
@@ -339,4 +339,38 @@ h2 {
 #current-cover {
     height: 100px;
     margin: 0px 40px;
+}
+
+#search-section {
+    width: 80%;
+    margin: 14px auto;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 14px;
+    margin-bottom:  */
+    
+    #search-bar {
+        width: 80%;
+        height: 30px;
+        border: none;
+        border-radius: 10px;
+        font-size: 17px;
+    }
+
+    .fa-search {
+        padding: 8px;
+        height: 14px;
+        border: none;
+        border-radius: 10px;
+        background-color: var(--lightpurple);
+    }
+
+    p {
+        color: var(--lightpurple);
+        font-size: 15px;
+        font-weight: bolder;
+    }
 }
