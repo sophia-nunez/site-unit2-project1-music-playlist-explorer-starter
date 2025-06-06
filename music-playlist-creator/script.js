@@ -31,13 +31,13 @@ async function loadPlaylists() {
             playlistCard.className = 'playlist';
             playlistCard.innerHTML = 
             `
-            <img class="playlist-cover" src="${playlist.playlist_art}" />
+            <div class="img-wrapper"><img class="playlist-cover" src="${playlist.playlist_art}"><i class="fa-solid fa-pencil playlist-icon" onclick="editPlaylist(event)"></i><i class="fa fa-trash playlist-icon" aria-hidden="true" onclick="deletePlaylist(event)"></i></img></div>
             <section class="card-info">
                 <div class="card-text">
                     <h3 class="playlist-name">${playlist.playlist_name}</h3>
                     <p>${playlist.playlist_author}</p>
                 </div>
-                <button class="like-container" onclick="likePlaylist(event)" data-liked="false"><i id="icon" class="fa-regular fa-heart heart-icon"></i><span class="like-count">${playlist.likes}</span></button>
+                    <button class="like-container" onclick="likePlaylist(event)" data-liked="false"><i id="icon" class="fa-regular fa-heart heart-icon"></i><span class="like-count">${playlist.likes}</span></button>
             </section>
             `;
             playlistCards.appendChild(playlistCard);
@@ -177,4 +177,15 @@ async function loadFeatured() {
     playlistCard.addEventListener('click', () => {
         openModal(playlist);
     })
+}
+
+// stretch features
+function editPlaylist(event) {
+    event.stopPropagation();
+    console.log('edited');
+}
+
+function deletePlaylist(event) {
+    event.stopPropagation();
+    console.log('deleted');
 }

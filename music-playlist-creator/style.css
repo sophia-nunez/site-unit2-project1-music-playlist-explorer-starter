@@ -17,6 +17,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--purple);
+}
+
+main {
     display: flex;
     flex-direction: column;
     height: fit-content;
@@ -35,6 +38,12 @@ header {
     display: grid;
     grid-template-columns: 50px 1fr;
 }
+
+footer {
+    margin: 0;
+    height: 5vh;
+    align-content: center;
+} 
 
 .logo-container {
     align-self: center;
@@ -59,7 +68,7 @@ nav {
         text-decoration: none;
         /* border: 2px solid var(--darkpurple);
         border-radius: 20px; */
-        padding: 10px;
+        padding: 10px 15px;
         color: var(--lightpurple);
         /* background-color: var(--lightpurple); */
         display: block;
@@ -102,6 +111,7 @@ nav {
 .playlist .card-text {
     margin: 5px 10px;
     height: 100%;
+    width: 58%;
 }
 
 .card-text * {
@@ -161,12 +171,13 @@ p {
     color: var(--lightpurple);
     background-color: transparent;
     border: none;
+    text-align: center;
     margin-right: 8px;
 }
 
 #featured-container {
     width: 70%;
-    justify-self: center;
+    margin: auto;
 
 }
 
@@ -217,4 +228,59 @@ h2 {
     h2 {
         font-size: 100px;
     }
+}
+
+/* stretch features */
+#add-container {
+    justify-content: center;
+}
+
+#add-btn {
+    color: var(--purple);
+    font-size: 120px;
+    align-self: center;
+    background-color: var(--lightpurple);
+    border-radius: 50%;
+    padding: 10% calc(10% + 10px);
+    
+}
+
+#add-container:hover {
+    box-shadow: none;
+    background-color: transparent;
+}
+#add-btn:hover {
+    color: var(--purple);
+    background-color: #1d013b79;
+}
+
+
+.playlist-icon {
+    color: var(--darkpurple);
+    padding: 13px;
+    background-color: #d3c2f1ad;
+    border-radius: 50%;
+    font-size: 15px; 
+    top: 0;
+    right: 0;   
+}
+
+.fa-pencil {
+    position: absolute;
+    transform: translate(30%, -30%);
+}
+
+.fa-trash {
+    position: absolute;
+    transform: translate(30%, 100%);
+}
+
+.playlist-icon:hover {
+    color: var(--lightpurple); 
+    background-color: #1d013bb9;
+}
+
+.img-wrapper {
+  position: relative;
+  display: inline-block;
 }

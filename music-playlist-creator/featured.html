@@ -12,39 +12,43 @@
     <header>
         <a id="home" class="logo-container" href="index.html"><strong><i class="fa fa-home" aria-hidden="true"></i></strong></a>
         <h1>Music Playlist Explorer</h1>
-
     </header>
+
+    <nav>
+        <a id="index" href="index.html"><strong>Home</strong></a>
+        <a id="featured" href="featured.html"><strong>Featured</strong></a>
+    </nav>
 
     <main>
         <h2>Featured Playlist:</h2>
         <article class="playlist" id="featured-container">
             <!-- playlist information dynamically loaded -->
         </article>
-    </main>
 
-    <aside id="playlist-modal" class="modal">
-        <span class="close">&times;</span>
-        <section id="modal-content">
-            <article id="playlist-card" class="flex-container">
-                <img id="playlist-cover" src="./assets/img/playlist.png" alt="Playlist Cover Image" height="50px;"/>
-                <div>
-                    <h1 id="playlist-name">Playlist Name</h1>
-                    <p id="creator-name">Creator Name</p>
-                    <button id="shuffle-btn">Shuffle <i class="fa-solid fa-shuffle"></i></button>
-                </div>
-            </article>
-            <section id="song-cards">
-                <!-- song cards here from script -->
+        <aside id="playlist-modal" class="modal">
+            <span class="close">&times;</span>
+            <section id="modal-content">
+                <article id="playlist-card" class="flex-container">
+                    <img id="playlist-cover" src="./assets/img/playlist.png" alt="Playlist Cover Image" height="50px;"/>
+                    <div>
+                        <h1 id="playlist-name">Playlist Name</h1>
+                        <p id="creator-name">Creator Name</p>
+                        <button id="shuffle-btn">Shuffle <i class="fa-solid fa-shuffle"></i></button>
+                    </div>
+                </article>
+                <section id="song-cards">
+                    <!-- song cards here from script -->
+                </section>
             </section>
-        </section>
-    </aside>
+        </aside>
 
-    <footer>
-        <p> Created by Sophia N</p>
-    </footer>
+        <footer>
+            <p> Created by Sophia N</p>
+        </footer>
 
-    <script src="data/data.json"></script>
-    <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/43369ad2cf.js" crossorigin="anonymous"></script>
-  </body>
+        <script src="data/data.json"></script>
+        <script src="script.js"></script>
+        <script src="https://kit.fontawesome.com/43369ad2cf.js" crossorigin="anonymous"></script>
+    </main>
+</body>
 </html>
