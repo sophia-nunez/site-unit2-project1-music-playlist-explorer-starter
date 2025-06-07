@@ -129,26 +129,26 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
   - [x] Selecting a sort option should result in a reordering based on the selected sort while maintaining a grid view.
 
 ### Walkthrough Video
+Embed feature did not work, so I've put the link below after speaking with a CodePath instructor:
 https://www.loom.com/share/42a6dfa50ccc4f638ed84799a9ea92c9?sid=600f0ae2-4eab-4b67-a9b6-921a29a6f251
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+The lessons were helpful, especially for those who have very little backgrond in HTML/CSS/Javascript. The discussion we had on form submissions helped me a lot, as this was a topic I've never used before with these technologies. The labs were a nice way for me to practice the topics we had gone over in more depth, closer to the level of difficulty that was needed for the project features. However, there were some areas such as image uploads and more complicated grid manipulation that were difficult. Especially for different screen sizes, I didn't know to start the layout for a small screen and make media styles for wider ones on top of that.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+I would work on style and page responsiveness more. I worked out most major issues with this, but there was a lot of code that got messy. Due to this, it was difficult to go through my CSS and make sure everything would work (although the basic display seemed to operate well on many device screen sizes). Additionally, I would leave more time for the stretch features. I spent a lot of time on very minor stylistic choices, so some of the functions especially around the form submissions were overcomplicated in my code. I got them working, but I wish I had more time to trial the page and find more bugs.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I'm really happy with how my design turned out! I usually find the page design hard to do, but I was able to modify things and eventually reach a display I really liked. I was also able to do all of the features in a way that I think worked well. This was especially true for playlist add/edit with the cover upload, as I got this working with a preview. One other thing was the array with playlist objects, as I thought my manipulation of this between functions went very well! Some things didn't go as planned, especially regarding modal styling. It was diffficult to figure out what to do with so many containers,and I likely overcomplicated the page setup. 
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+Not a library, but I used font-awesome: https://fontawesome.com/
 
 ### Shout out
-
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Thank you to Greg for your help throughout everything! Also to Gianna, who I talked with in the beginning of the week about general functionality of the page.
