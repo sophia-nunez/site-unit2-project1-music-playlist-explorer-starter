@@ -632,9 +632,7 @@ function sortLikes() {
   let sortedPlaylists = [...playlists];
 
   const likeButtons = document.querySelectorAll(".like-container");
-  sortedPlaylists.sort((a, b) => {
-    return a.liked === b.liked ? 0 : a.liked ? -1 : 1;
-  });
+  sortedPlaylists.sort((a, b) => (b.likes - a.likes));
 
   loadPlaylists(sortedPlaylists);
 }
