@@ -345,7 +345,11 @@ function handlePlaylistCreation(event) {
   const playlist_name = document.getElementById("playlist-new-name").value;
   const playlist_author = document.getElementById("author").value;
   const imgFile = document.getElementById("cover-image").files[0];
-  const playlist_art = window.URL.createObjectURL(imgFile);
+  if (imgFile) {
+    const playlist_art = window.URL.createObjectURL(imgFile);
+  } else {
+    playlist_art = "./assets/img/playlist.png";
+  }
   const songs = [];
 
   // song info, make a song for each song added
@@ -524,12 +528,10 @@ function editPlaylistSubmission(event) {
   const playlist_name = document.getElementById("playlist-new-name").value;
   const playlist_author = document.getElementById("author").value;
   const imgFile = document.getElementById("cover-image").files[0];
+  let playlist_art = playlist.playlist_art;
   if (imgFile) {
-    const playlist_art = window.URL.createObjectURL(imgFile);
-  } else {
-    playlist_art = "";
-  }
-
+    playlist_art = window.URL.createObjectURL(imgFile);
+  } 
   // remove deleted songs
   playlist.songs = playlist.songs.filter(
     (song) => !songsToDelete.includes(song.song_title)
@@ -562,7 +564,7 @@ function editPlaylistSubmission(event) {
   // update playlist object
   playlist.playlist_name = playlist_name;
   playlist.playlist_author = playlist_author;
-  if (playlist_art !== "") {
+  if (playlist_art) {
     playlist.playlist_art = playlist_art;
   }
   playlist.songs = songs;
