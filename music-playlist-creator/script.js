@@ -345,10 +345,9 @@ function handlePlaylistCreation(event) {
   const playlist_name = document.getElementById("playlist-new-name").value;
   const playlist_author = document.getElementById("author").value;
   const imgFile = document.getElementById("cover-image").files[0];
+  let playlist_art = "./assets/img/playlist.png";
   if (imgFile) {
-    const playlist_art = window.URL.createObjectURL(imgFile);
-  } else {
-    playlist_art = "./assets/img/playlist.png";
+    playlist_art = window.URL.createObjectURL(imgFile);
   }
   const songs = [];
 
@@ -410,6 +409,9 @@ function openAddModal() {
   const submitBtn = document.getElementById("add-submit");
   submitBtn.textContent = "Create Playlist";
   submitBtn.className = "";
+
+  const playlist_art = document.getElementById("cover-image");
+  playlist_art.addEventListener("change", changePreview, false);
 }
 
 function closeAddModal() {
@@ -631,11 +633,6 @@ function sortLikes() {
 
   const likeButtons = document.querySelectorAll(".like-container");
   sortedPlaylists.sort((a, b) => {
-    // change to boolean - liked is true, not is false
-    // const likedA = a.liked === 'true';
-    // const likedB = b.liked === 'true';
-
-    // sort liked as first
     return a.liked === b.liked ? 0 : a.liked ? -1 : 1;
   });
 
